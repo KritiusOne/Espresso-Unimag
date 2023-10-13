@@ -1,5 +1,5 @@
-import { LogInForm } from './components/logIn/LogInForm.jsx'
-import { Header } from './components/header/Header.jsx'
+import { LogInForm } from '../../components/logIn/LogInForm.jsx'
+import { Header } from '../../components/header/Header.jsx'
 import './App.css'
 
 function App() {

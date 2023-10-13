@@ -1,0 +1,18 @@
+.header,
+.header__nav,
+.header__nav__list,
+.header__nav__list--container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  list-style: none;
+  height: 36px;
+  padding: 5px 2px;
+  color: var(--color-white);
+}
+
+.header {
+  background-color: var(--color-black);
+}
