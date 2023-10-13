@@ -1,0 +1,14 @@
+.Login {
+  background-color: var(--bg-color-grey);
+  height: 99vh;
+  width: 100%;
+  position: relative;
+}
+
+.Login__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}

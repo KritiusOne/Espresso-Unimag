@@ -2,16 +2,14 @@ import { LogInForm } from '../../components/logIn/LogInForm.jsx'
 import { Header } from '../../components/header/Header.jsx'
 import './App.css'
 
-function App() {
+export function Login() {
   return (
-    <div>
+    <div className="Login">
       <Header />
-      <div>
-        <h1>Iniciar Sesion</h1>
+      <div className="Login__container">
+        <h1 className="Login__title">Iniciar Sesion</h1>
         <LogInForm />
       </div>
     </div>
   )
 }
-
-export default App
