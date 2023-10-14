@@ -1,10 +1,17 @@
 .form {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  padding: 5px 10px;
-  height: 50%;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(200px, 1fr));
+  place-content: center;
+  gap: 25px;
+}
+
+.form--container-inputs {
+  height: 100%;
+}
+
+.form--container__img img {
+  width: 100%;
+  width: 100%;
 }
 
 .form--container {
