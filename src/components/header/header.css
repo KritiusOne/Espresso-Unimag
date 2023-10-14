@@ -1,4 +1,3 @@
-.header,
 .header__nav,
 .header__nav__list,
 .header__nav__list--container {
@@ -17,4 +16,25 @@
   position: absolute;
   top: 0;
   background-color: var(--color-black);
+  display: flex;
+  flex-direction: column;
+}
+
+.header--container {
+  background-color: var(--bg-color-grey);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: center;
+  align-items: center;
+  padding-right: 20px;
+}
+
+.header__img--container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.header--container img {
+  width: 15%;
 }
