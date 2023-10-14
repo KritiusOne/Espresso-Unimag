@@ -3,6 +3,8 @@
   padding: 0;
   text-align: center;
   font-family: sans-serif;
+  box-sizing: border-box;
+  font-size: 16px;
 }
 
 html,
@@ -14,7 +16,27 @@ body {
 }
 
 :root {
+  /*COLORES
+  COLOR: PA USARLO PA LO QUE SE QUIERA
+  BG: PRESENTE EN EL BACKGROUND EN MAYORÍA
+  TEXT UNICAMENTE PAL TEXTO
+  */
   --color-white: #fff;
   --color-black: #000;
   --bg-color-grey: #f0f2f5;
+  --bg-color-blue: #20638C;
+  /*
+  TEXTOS
+  SM: SMALL, LETRA PEQUEÑA
+  BASE: LA BASE (16PX)
+  LG: LARGE, GRANDE
+  XL: EXTRA LARGE, EXTRA GRANDE (CON SUS RESPECTIVOS MULTIPLOS, X2, X4, ETC)
+  */
+  --text-sm: 0.75rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --text-4xl: 2.25rem;
 }

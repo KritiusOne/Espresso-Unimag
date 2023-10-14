@@ -1,17 +1,17 @@
 import React from 'react'
 import bgImg from '../../assets/bgLogin.jpg'
-import "./loginForm.css"
 import { Title } from '../titles/title/Title'
 import { Subtitle } from '../titles/subtitle/Subtitle'
+import "./loginForm.css"
 
 export function LogInForm() {
   return (
     <form className="form">
-      <section className='form--container-inputs'>
-        <Title>
+      <section className='form--containerPrime'>
+        <Title className="form__title">
           Bienvenido de vuelta
         </Title>
-        <Subtitle>
+        <Subtitle className="form__subtitle">
           Iniciar sesión para continuar
         </Subtitle>
         <div className="form--container">
