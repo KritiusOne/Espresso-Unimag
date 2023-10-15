@@ -20,17 +20,17 @@ export function Header() {
       </div>
       <nav className="header__nav">
         <ul className="header__nav__list">
-          <div className="header__nav__list--container">
+          <li className="header__nav__list--container">
             <Link to="/" className="header__nav__button">Inicio</Link>
             <Link to="/products" className="header__nav__button">Productos</Link>
-          </div>
-          <div className="header__nav__list--container">
+          </li>
+          <li className="header__nav__list--container">
             <input type="text" />
-          </div>
-          <div className="header__nav__list--container">
+          </li>
+          <li className="header__nav__list--container">
             <Link to="/about-Us" className="header__nav__button">Nosotros</Link>
             <Link to="/preguntas-frecuentes" className="header__nav__button">Preguntas frecuentes</Link>
-          </div>
+          </li>
         </ul>
       </nav>
     </header>

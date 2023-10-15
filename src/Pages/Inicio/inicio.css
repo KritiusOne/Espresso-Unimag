@@ -1,0 +1,12 @@
+.Inicio {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-color-grey);
+}
+
+.inicio__main {
+  height: 100%;
+  margin: 100px auto;
+  background-color: var(--bg-color-grey);
+  width: var(--w-screen-md);
+}
