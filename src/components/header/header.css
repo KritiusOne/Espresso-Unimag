@@ -12,6 +12,12 @@
   padding: 5px 0;
 }
 
+.header__nav__list--container {
+  padding: 0;
+  line-height: 36px;
+  text-align: center;
+}
+
 .header {
   position: absolute;
   top: 0;
@@ -27,14 +33,50 @@
   justify-content: center;
   align-items: center;
   padding-right: 20px;
+
 }
 
 .header__img--container {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  height: 100%;
 }
 
 .header--container img {
   width: 15%;
+}
+
+
+
+.header__button--LogIn,
+.header__nav__button,
+.header__button--SingIn {
+  width: 50%;
+  text-align: center;
+  display: inline-block;
+  vertical-align: middle;
+  text-decoration: none;
+}
+
+.header__button--LogIn,
+.header__button--SingIn {
+  color: var(--color-black);
+  line-height: 4;
+}
+
+.header__button--LogIn:hover,
+.header__button--SingIn:hover {
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
+
+.header__nav__button {
+  color: var(--color-white);
+
+}
+
+.header__nav__button:hover {
+  background-color: var(--bg-color-grey);
+  color: var(--color-black);
 }

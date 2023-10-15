@@ -1,5 +1,7 @@
 import logo from "../../assets/logo.png"
+import { Link } from "react-router-dom"
 import "./header.css"
+
 export function Header() {
   return (
     <header className="header">
@@ -8,26 +10,26 @@ export function Header() {
           <img src={logo} alt="" className="header__logo" />
         </div>
         <div className="header__img--container">
-          <span className="header__button--LogIn">
+          <Link to="/login" className="header__button--LogIn">
             Iniciar Sesion
-          </span>
-          <span className="header__button--SingIn">
+          </Link>
+          <Link to="/singIn" className="header__button--SingIn">
             Registrarse
-          </span>
+          </Link>
         </div>
       </div>
       <nav className="header__nav">
         <ul className="header__nav__list">
           <div className="header__nav__list--container">
-            <li>Inicio</li>
-            <li>Productos</li>
+            <Link to="/" className="header__nav__button">Inicio</Link>
+            <Link to="/products" className="header__nav__button">Productos</Link>
           </div>
           <div className="header__nav__list--container">
             <input type="text" />
           </div>
           <div className="header__nav__list--container">
-            <li>Nosotros</li>
-            <li>Preguntas frecuentes</li>
+            <Link to="/about-Us" className="header__nav__button">Nosotros</Link>
+            <Link to="/preguntas-frecuentes" className="header__nav__button">Preguntas frecuentes</Link>
           </div>
         </ul>
       </nav>
