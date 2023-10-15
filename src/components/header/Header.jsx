@@ -8,6 +8,9 @@ export function Header() {
           <img src={logo} alt="" className="header__logo" />
         </div>
         <div className="header__img--container">
+          <span className="header__button--LogIn">
+            Iniciar Sesion
+          </span>
           <span className="header__button--SingIn">
             Registrarse
           </span>
