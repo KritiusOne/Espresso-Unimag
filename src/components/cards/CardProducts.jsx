@@ -1,4 +1,6 @@
 import React from 'react'
+import { BsCart4 } from "react-icons/bs"
+import { Button } from '../buttons/Button'
 import './CardProducts.css'
 
 export function CardProducts({ imgSrc, title, price, description }) {
@@ -11,7 +13,7 @@ export function CardProducts({ imgSrc, title, price, description }) {
         <h3 className='card__title'> {title} </h3>
         <div className='card__info--container'>
           <strong className='card__price'>PRICE: $: {price} </strong>
-          <button className='card__buttton'> ADD </button>
+          <Button className='card__buttton' Icon={BsCart4} title={"ADD"} />
         </div>
       </section>
     </div>

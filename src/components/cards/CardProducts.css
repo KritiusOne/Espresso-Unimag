@@ -4,6 +4,7 @@
   justify-content: space-between;
   align-items: center;
   border: 1px solid var(--color-black);
+  background-color: var(--color-white);
 }
 
 .card__img--container {
@@ -24,9 +25,32 @@
   align-items: center;
   height: 100%;
   gap: 5px;
+  width: 100%;
 }
 
 .card__title {
   font-size: var(--text-lg);
   font-weight: normal;
+}
+
+.card__info--container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.card__buttton {
+  outline: none;
+  border: none;
+  width: 70%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 5px 10px;
+  background-color: var(--bg-color-blue);
+  color: var(--color-white);
+  cursor: pointer;
 }
