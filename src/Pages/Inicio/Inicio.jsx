@@ -5,7 +5,7 @@ import info from "../../utils/datafake/products.json"
 import "./inicio.css"
 
 export function Inicio() {
-  const [products, setProducts] = useState(...info.products)
+  const [products, setProducts] = useState(info.products)
   return (
     <div className="Inicio">
       <Header />
