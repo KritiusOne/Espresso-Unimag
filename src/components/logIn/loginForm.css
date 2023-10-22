@@ -1,8 +1,9 @@
 .form {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(200px, 1fr));
-  place-content: center;
-  gap: 25px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
 }
 
 .form--containerPrime {
@@ -62,9 +63,4 @@
 .form__button:hover {
   color: var(--color-black);
   background-color: #42592A;
-}
-
-.form--container__img img {
-  width: 100%;
-  width: 100%;
 }

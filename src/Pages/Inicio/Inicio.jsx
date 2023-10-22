@@ -6,6 +6,7 @@ import "./inicio.css"
 
 export function Inicio() {
   const [products, setProducts] = useState(info.products)
+  console.log(typeof info)
   return (
     <div className="Inicio">
       <Header />
