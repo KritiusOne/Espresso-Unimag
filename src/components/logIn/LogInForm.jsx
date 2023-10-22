@@ -20,7 +20,6 @@ export function LogInForm() {
     if (response) {
       setUser(response)
       setUserPending({})
-      console.log(`RESPUESTA: ${response.name}`)
     } else {
       console.log("USER NO ENCONTRADO")
     }
