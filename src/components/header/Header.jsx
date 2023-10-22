@@ -1,8 +1,13 @@
 import logo from "../../assets/logo.png"
 import { Link } from "react-router-dom"
+import { useContext } from "react"
+import { ProductsContext } from "../../context/productsContext"
+import { ProfileButtons } from "../buttons/ProfileButtons"
+import { IgnoreButtons } from "../buttons/IgnoreButtons"
 import "./header.css"
 
 export function Header() {
+  const { user } = useContext(ProductsContext)
   return (
     <header className="header">
       <div className="header--container">
@@ -10,12 +15,9 @@ export function Header() {
           <img src={logo} alt="" className="header__logo" />
         </div>
         <div className="header__img--container">
-          <Link to="/login" className="header__button--LogIn">
-            Iniciar Sesion
-          </Link>
-          <Link to="/singIn" className="header__button--SingIn">
-            Registrarse
-          </Link>
+          {
+            !user.name ? <IgnoreButtons /> : <ProfileButtons />
+          }
         </div>
       </div>
       <nav className="header__nav">

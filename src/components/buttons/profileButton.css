@@ -1,0 +1,40 @@
+.profileButtons {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.profileButtons__userButton {
+  height: 100%;
+  width: 50%;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  cursor: pointer;
+}
+
+.profileButtons__userButton:hover {
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
+
+.profileButtons__userButton__title {
+  width: 100%;
+  font-size: var(--text-2xls);
+}
+
+.profileButtons__icon {
+  font-size: var(--text-2xl);
+  font-weight: bold;
+}
+
+.profileButtons__userButton__img {
+  border-radius: 50%;
+}

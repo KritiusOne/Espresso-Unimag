@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
+import { ProductsContext } from "../../context/productsContext"
 import { Title } from '../titles/title/Title'
 import { Subtitle } from '../titles/subtitle/Subtitle'
 import allUsers from "../../utils/datafake/users.json"
@@ -9,13 +10,20 @@ export function LogInForm() {
     username: "",
     password: ""
   })
+  const { setUser } = useContext(ProductsContext)
   const handleSubmit = (e) => {
     e.preventDefault()
     //Aquí hariamos una peticion asincronica por medio de un custom hook
     const [response] = allUsers.filter((user) => {
       return user.email == userPending.username && user.password == userPending.password ? user : null
     })
-    console.log(response)
+    if (response) {
+      setUser(response)
+      setUserPending({})
+      console.log(`RESPUESTA: ${response.name}`)
+    } else {
+      console.log("USER NO ENCONTRADO")
+    }
   }
   const handleChangeText = (e) => {
     setUserPending({
