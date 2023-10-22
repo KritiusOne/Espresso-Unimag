@@ -27,12 +27,22 @@
 
 .profileButtons__userButton__title {
   width: 100%;
-  font-size: var(--text-2xls);
+  font-size: var(--text-lg);
 }
 
 .profileButtons__icon {
   font-size: var(--text-2xl);
   font-weight: bold;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  height: 100%;
+  width: 120px;
+}
+
+.profileButtons__icon:hover {
+  background-color: var(--color-black);
+  color: var(--color-white);
 }
 
 .profileButtons__userButton__img {
