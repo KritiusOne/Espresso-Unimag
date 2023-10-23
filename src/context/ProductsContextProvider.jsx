@@ -1,14 +1,24 @@
-import React, { useState } from 'react'
+import React, { useReducer } from 'react'
 import { ProductsContext } from './productsContext'
+import { ProductsReducer, initialState } from './ProductsReducer'
+import { ActionTYPES } from './ActionTypes'
+import allUsers from "../utils/datafake/users.json"
 
 export function ProductsContextProvider({ children }) {
-  const [cart, setCart] = useState({})
-  const [user, setUser] = useState({})
+  const [state, dispatch] = useReducer(ProductsReducer, initialState)
+  const getUser = (username, password) => {
+    const [user] = allUsers.filter(user => username == user.email && password == user.password)
+    dispatch({
+      type: ActionTYPES.LOGIN_USER_DATA,
+      payload: user
+    })
+  }
   return (
     <ProductsContext.Provider value={
       {
-        cart, setCart,
-        user, setUser
+        cart: state.cart,
+        user: state.user,
+        getUser
       }}>
       {
         children
