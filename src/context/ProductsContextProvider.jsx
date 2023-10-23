@@ -8,10 +8,14 @@ export function ProductsContextProvider({ children }) {
   const [state, dispatch] = useReducer(ProductsReducer, initialState)
   const getUser = (username, password) => {
     const [user] = allUsers.filter(user => username == user.email && password == user.password)
-    dispatch({
-      type: ActionTYPES.LOGIN_USER_DATA,
-      payload: user
-    })
+    if (user) {
+      dispatch({
+        type: ActionTYPES.LOGIN_USER_DATA,
+        payload: user
+      })
+    } else {
+      //usuario o contraseña incorrectos
+    }
   }
   return (
     <ProductsContext.Provider value={

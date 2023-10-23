@@ -7,7 +7,6 @@ export const initialState = {
   cart: []
 } 
 export function ProductsReducer(state, action){
-  console.log(ActionTYPES)
   switch (action.type) {
     case ActionTYPES.ADD_TO_CART: {
       let newProduct = state.products.find((product) => product.id === action.payload)
@@ -34,14 +33,11 @@ export function ProductsReducer(state, action){
       }
     }
     case ActionTYPES.LOGIN_USER_DATA: {
-      console.log("Actualice")
       return {
         ...state, user: action.payload
       }
     }
     default:{
-      console.log("ENtre en el defaul")
-      console.log(action)
       return state;
     }
   }
