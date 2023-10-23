@@ -3,10 +3,7 @@ import { BsCart4 } from "react-icons/bs"
 import { Button } from '../buttons/Button'
 import './CardProducts.css'
 
-export function CardProducts({ imgSrc, title, price, description }) {
-  const handleClick = () => {
-
-  }
+export function CardProducts({ imgSrc, title, price, description, handleClick }) {
   return (
     <div className='card'>
       <section className='card__img--container'>
@@ -16,7 +13,7 @@ export function CardProducts({ imgSrc, title, price, description }) {
         <h3 className='card__title'> {title} </h3>
         <div className='card__info--container'>
           <strong className='card__price'>PRICE: $: {price} </strong>
-          <Button className='card__buttton' Icon={BsCart4} title={"ADD"} />
+          <Button className='card__buttton' Icon={BsCart4} title={"ADD"} clickHandler={handleClick} />
         </div>
       </section>
     </div>

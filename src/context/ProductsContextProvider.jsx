@@ -17,12 +17,23 @@ export function ProductsContextProvider({ children }) {
       //usuario o contraseña incorrectos
     }
   }
+  const addProductToCart = (product) => {
+    if (product && !state.cart.includes(product)) {
+      dispatch({
+        type: ActionTYPES.ADD_TO_CART,
+        payload: product
+      })
+    } else {
+      //cambiar por el cambio en la ui
+      console.log("Ya esta agregado")
+    }
+  }
   return (
     <ProductsContext.Provider value={
       {
         cart: state.cart,
         user: state.user,
-        getUser
+        getUser, addProductToCart
       }}>
       {
         children

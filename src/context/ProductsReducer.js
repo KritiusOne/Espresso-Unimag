@@ -9,10 +9,9 @@ export const initialState = {
 export function ProductsReducer(state, action){
   switch (action.type) {
     case ActionTYPES.ADD_TO_CART: {
-      let newProduct = state.products.find((product) => product.id === action.payload)
       return {
         ...state,
-        cart: [...state.cart, newProduct]
+        cart: [...state.cart, action.payload]
       };
     }
     case ActionTYPES.DELETE_FROM_CART: {
