@@ -5,5 +5,5 @@ export const TypesRoutes = {
   ABOUT_US: "/about-us",
   PREGUNTAS_FRECUENTES: "/preguntas-frecuentes",
   SING_IN: "/singin",
-  ERROR_404: "*"
+  ERROR_404: "*",
 }
