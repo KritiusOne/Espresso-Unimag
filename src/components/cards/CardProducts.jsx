@@ -4,6 +4,9 @@ import { Button } from '../buttons/Button'
 import './CardProducts.css'
 
 export function CardProducts({ imgSrc, title, price, description }) {
+  const handleClick = () => {
+
+  }
   return (
     <div className='card'>
       <section className='card__img--container'>

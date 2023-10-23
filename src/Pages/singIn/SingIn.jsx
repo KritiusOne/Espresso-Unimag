@@ -1,7 +1,8 @@
 import React from 'react'
+import { LayoutPage } from '../../components/layout/LayoutPage'
 
 export function SingIn() {
   return (
-    <div>SingIn</div>
+    <LayoutPage>SingIn</LayoutPage>
   )
 }
