@@ -1,24 +1,36 @@
-import { useState, useContext } from 'react'
+import { useState, useContext, useEffect } from 'react'
 import { ProductsContext } from "../../context/productsContext"
 import { Title } from '../titles/title/Title'
 import { Subtitle } from '../titles/subtitle/Subtitle'
+import { useNavigate } from 'react-router'
+import { TypesRoutes } from "../../routes/TypesRoutes.js"
 import "./loginForm.css"
 
 export function LogInForm() {
   const context = useContext(ProductsContext)
+  const navegate = useNavigate()
   const [userPending, setUserPending] = useState({
     username: "",
     password: ""
   })
+  let validatorEmail = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/
+  useEffect(() => {
+    if (context.user.name) {
+      navegate(TypesRoutes.HOME)
+    }
+  }, [context.user])
   const handleSubmit = (e) => {
     e.preventDefault()
     //Aquí hariamos una peticion asincronica por medio de un custom hook
     context.getUser(userPending.username, userPending.password)
   }
   const handleChangeText = (e) => {
-    setUserPending({
-      ...userPending, username: e.target.value
-    })
+    let posibleEmail = e.target.value
+    if (validatorEmail.test(posibleEmail)) {
+      setUserPending({
+        ...userPending, username: e.target.value
+      })
+    }
   }
   const handleChangePassword = (e) => {
     setUserPending({
