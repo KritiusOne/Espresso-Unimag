@@ -1,7 +1,8 @@
 import React from 'react'
+import { LayoutPage } from '../../components/layout/LayoutPage'
 
 export function Productos() {
   return (
-    <div>Productos</div>
+    <LayoutPage>Productos</LayoutPage>
   )
 }
