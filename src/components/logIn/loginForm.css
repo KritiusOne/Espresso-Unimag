@@ -23,7 +23,7 @@
 }
 
 .form--container__subtitle {
-  color: var(--bg-color-blue);
+  color: var(--color-bg-blue);
   text-align: left;
 }
 
@@ -53,7 +53,7 @@
 }
 
 .form__button {
-  background-color: var(--bg-color-blue);
+  background-color: var(--color-bg-blue);
   color: var(--color-white);
   border: none;
   outline: none;

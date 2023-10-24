@@ -27,7 +27,7 @@
 }
 
 .header--container {
-  background-color: var(--bg-color-grey);
+  background-color: var(--color-bg-grey);
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   justify-content: center;
@@ -77,6 +77,6 @@
 }
 
 .header__nav__button:hover {
-  background-color: var(--bg-color-grey);
+  background-color: var(--color-bg-grey);
   color: var(--color-black);
 }
