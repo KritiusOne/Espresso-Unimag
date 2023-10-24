@@ -4,6 +4,7 @@ import { Subtitle } from "../../components/titles/subtitle/Subtitle.jsx"
 import { AiFillCloseCircle } from "react-icons/ai"
 import { Button } from "../../components/buttons/Button.jsx"
 import { AiOutlineReload } from "react-icons/ai"
+import { CartProductCard } from '../cards/CartProductCard'
 import "./cartAside.css"
 
 export function CartAside() {
@@ -20,7 +21,8 @@ export function CartAside() {
         </header>
         <main className='cartAside__main'>
           {
-            cart.length ? cart.map(product => <div key={product.id}> {product.title} </div>) : <div> No hay elementos en el carrito </div>
+            cart.length ? cart.map(product => <CartProductCard
+              nameProduct={product.title} price={product.price} srcImg={product.images[0]} cantidad={0} key={product.id} />) : <h6> No hay elementos en el carrito </h6>
           }
         </main>
         <footer className='cartAside__footer'>
