@@ -22,7 +22,7 @@ export function CartAside() {
         <main className='cartAside__main'>
           {
             cart.length ? cart.map(product => <CartProductCard
-              nameProduct={product.title} price={product.price} srcImg={product.images[0]} cantidad={0} key={product.id} />) : <h6> No hay elementos en el carrito </h6>
+              nameProduct={product.title} price={product.price} srcImg={product.images[0]} cantidad={product.cantidad} key={product.id} />) : <h6> No hay elementos en el carrito </h6>
           }
         </main>
         <footer className='cartAside__footer'>

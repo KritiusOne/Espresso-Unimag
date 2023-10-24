@@ -18,10 +18,15 @@ export function ProductsContextProvider({ children }) {
     }
   }
   const addProductToCart = (product) => {
+    console.log(product)
+    const newProduct = {
+      ...product,
+      cantidad: 1
+    }
     if (product && !state.cart.includes(product)) {
       dispatch({
         type: ActionTYPES.ADD_TO_CART,
-        payload: product
+        payload: newProduct
       })
     } else {
       //cambiar por el cambio en la ui
