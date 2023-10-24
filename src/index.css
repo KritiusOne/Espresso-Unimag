@@ -23,8 +23,10 @@ body {
   */
   --color-white: #fff;
   --color-black: #000;
-  --bg-color-grey: #f0f2f5;
-  --bg-color-blue: #20638C;
+  --color-bg-grey: #f0f2f5;
+  --color-bg-blue: #20638C;
+  --color-bgButton-yellow: #F2A20C;
+  --color-bgButton-purple: #8F1884;
   /*
   TEXTOS
   SM: SMALL, LETRA PEQUEÑA
