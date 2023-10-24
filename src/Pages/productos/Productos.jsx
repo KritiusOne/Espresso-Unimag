@@ -3,6 +3,10 @@ import { LayoutPage } from '../../components/layout/LayoutPage'
 
 export function Productos() {
   return (
-    <LayoutPage>Productos</LayoutPage>
+    <LayoutPage>
+      <main>
+      </main>
+
+    </LayoutPage>
   )
 }

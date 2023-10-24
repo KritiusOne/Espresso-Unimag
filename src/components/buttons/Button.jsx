@@ -1,6 +1,6 @@
 import React from 'react'
 
-export function Button({ clickHandler, title, Icon, ...props }) {
+export function Button({ clickHandler, title = "HOLA", Icon, ...props }) {
   return (
     <button onClick={clickHandler} {...props}>
       <strong className='button__title' >
@@ -8,7 +8,9 @@ export function Button({ clickHandler, title, Icon, ...props }) {
           title
         }
       </strong>
-      <Icon />
+      {
+        Icon ? <Icon /> : ""
+      }
     </button>
   )
 }

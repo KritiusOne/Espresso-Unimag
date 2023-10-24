@@ -28,12 +28,19 @@ export function ProductsContextProvider({ children }) {
       console.log("Ya esta agregado")
     }
   }
+  const changeViewFromCart = (value) => {
+    dispatch({
+      type: ActionTYPES.CHANGE_STATE_VIEW_FROM_CART,
+      payload: value
+    })
+  }
   return (
     <ProductsContext.Provider value={
       {
         cart: state.cart,
         user: state.user,
-        getUser, addProductToCart
+        viewCart: state.viewCart,
+        getUser, addProductToCart, changeViewFromCart
       }}>
       {
         children

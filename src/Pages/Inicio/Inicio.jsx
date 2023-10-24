@@ -3,6 +3,7 @@ import { CardProducts } from '../../components/cards/CardProducts.jsx'
 import info from "../../utils/datafake/products.json"
 import { LayoutPage } from '../../components/layout/LayoutPage.jsx'
 import { ProductsContext } from '../../context/productsContext.js'
+import { CartAside } from '../../components/CartAside/CartAside.jsx'
 import "./inicio.css"
 
 export function Inicio() {

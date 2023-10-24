@@ -4,7 +4,8 @@ export const initialState = {
     username: "",
     password: ""
   },
-  cart: []
+  cart: [],
+  viewCart: false
 } 
 export function ProductsReducer(state, action){
   switch (action.type) {
@@ -34,6 +35,11 @@ export function ProductsReducer(state, action){
     case ActionTYPES.LOGIN_USER_DATA: {
       return {
         ...state, user: action.payload
+      }
+    }
+    case ActionTYPES.CHANGE_STATE_VIEW_FROM_CART: {
+      return {
+        ...state, viewCart: action.payload
       }
     }
     default:{
