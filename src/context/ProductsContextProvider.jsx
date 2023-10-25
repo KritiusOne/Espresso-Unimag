@@ -21,12 +21,13 @@ export function ProductsContextProvider({ children }) {
   }
   //FUNCIONES DEL CARRITO
   const addProductToCart = (product) => {
-    console.log(product)
     const newProduct = {
       ...product,
       cantidad: 1
     }
-    if (product && !state.cart.includes(product)) {
+    const filterProduct = state.cart.filter(product1 => product1.id == newProduct.id)
+    console.log(filterProduct)
+    if (product && filterProduct.length == 0) {
       dispatch({
         type: ActionTYPES.ADD_TO_CART,
         payload: newProduct
