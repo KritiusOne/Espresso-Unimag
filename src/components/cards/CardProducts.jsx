@@ -1,9 +1,15 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { BsCart4 } from "react-icons/bs"
 import { Button } from '../buttons/Button'
+import { ProductsContext } from '../../context/productsContext'
 import './CardProducts.css'
 
-export function CardProducts({ imgSrc, title, price, description, handleClick }) {
+export function CardProducts({ imgSrc, title, price, description, handleClick, id }) {
+  const { cart, deleteProductOnCart } = useContext(ProductsContext)
+  const [actualProduct] = cart.filter(product => product.id == id)
+  const handleDeleteProduct = (e) => {
+    deleteProductOnCart(id)
+  }
   return (
     <div className='card'>
       <section className='card__img--container'>
@@ -13,7 +19,9 @@ export function CardProducts({ imgSrc, title, price, description, handleClick })
         <h3 className='card__title'> {title} </h3>
         <div className='card__info--container'>
           <strong className='card__price'>PRICE: $: {price} </strong>
-          <Button className='card__buttton' Icon={BsCart4} title={"ADD"} clickHandler={handleClick} />
+          {
+            !actualProduct ? <Button className='card__buttton' Icon={BsCart4} title={"ADD"} clickHandler={handleClick} /> : <Button className='card__buttton button--delete' Icon={BsCart4} title={"Delete"} clickHandler={handleDeleteProduct} />
+          }
         </div>
       </section>
     </div>

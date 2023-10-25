@@ -24,6 +24,7 @@ export function Inicio() {
                 imgSrc={product.images[0]}
                 price={product.price}
                 handleClick={handleClickAddToCart}
+                id={product.id}
               />
             )
           })

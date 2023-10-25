@@ -15,6 +15,7 @@
   background-color: var(--color-white);
   display: grid;
   grid-template-rows: 1fr 4fr 1.5fr;
+  z-index: 1000;
 }
 
 .cartAside,

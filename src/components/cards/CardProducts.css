@@ -42,7 +42,8 @@
   gap: 10px;
 }
 
-.card__buttton {
+.card__buttton,
+.button--delete {
   outline: none;
   border: none;
   width: 70%;
@@ -51,7 +52,14 @@
   justify-content: center;
   gap: 10px;
   padding: 5px 10px;
-  background-color: var(--color-bg-blue);
-  color: var(--color-white);
   cursor: pointer;
+  color: var(--color-white);
+}
+
+.card__buttton {
+  background-color: var(--color-bg-blue);
+}
+
+.button--delete {
+  background-color: var(--color-bgButton-purple);
 }

@@ -32,9 +32,6 @@ export function ProductsContextProvider({ children }) {
         type: ActionTYPES.ADD_TO_CART,
         payload: newProduct
       })
-    } else {
-      //cambiar por el cambio en la ui
-      console.log("Ya esta agregado")
     }
   }
   const addMoreProductToCart = (id, cantidad) => {
@@ -49,6 +46,12 @@ export function ProductsContextProvider({ children }) {
       payload: value
     })
   }
+  const deleteProductOnCart = (id) => {
+    dispatch({
+      type: ActionTYPES.DELETE_FROM_CART,
+      payload: id
+    })
+  }
   return (
     <ProductsContext.Provider value={
       {
@@ -56,7 +59,8 @@ export function ProductsContextProvider({ children }) {
         user: state.user,
         viewCart: state.viewCart,
         getUser, addProductToCart,
-        changeViewFromCart, addMoreProductToCart
+        changeViewFromCart, addMoreProductToCart,
+        deleteProductOnCart
       }}>
       {
         children
