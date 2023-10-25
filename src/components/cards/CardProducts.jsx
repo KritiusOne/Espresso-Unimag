@@ -11,19 +11,19 @@ export function CardProducts({ imgSrc, title, price, description, handleClick, i
     deleteProductOnCart(id)
   }
   return (
-    <div className='card'>
-      <section className='card__img--container'>
+    <article className='card'>
+      <header className='card__img--container'>
         <img className='card__img' src={imgSrc} alt={description} />
-      </section>
-      <section className='card--container'>
+      </header>
+      <main className='card--container'>
         <h3 className='card__title'> {title} </h3>
-        <div className='card__info--container'>
+        <section className='card__info--container'>
           <strong className='card__price'>PRICE: $: {price} </strong>
           {
             !actualProduct ? <Button className='card__buttton' Icon={BsCart4} title={"ADD"} clickHandler={handleClick} /> : <Button className='card__buttton button--delete' Icon={BsCart4} title={"Delete"} clickHandler={handleDeleteProduct} />
           }
-        </div>
-      </section>
-    </div>
+        </section>
+      </main>
+    </article>
   )
 }
