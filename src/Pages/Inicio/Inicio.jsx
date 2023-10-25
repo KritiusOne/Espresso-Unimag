@@ -3,12 +3,14 @@ import { CardProducts } from '../../components/cards/CardProducts.jsx'
 import info from "../../utils/datafake/products.json"
 import { LayoutPage } from '../../components/layout/LayoutPage.jsx'
 import { ProductsContext } from '../../context/productsContext.js'
-import { CartAside } from '../../components/CartAside/CartAside.jsx'
+import { Modal } from '../../components/modal/Modal.jsx'
+import { InicioContext } from './InicioContext.js'
 import "./inicio.css"
 
 export function Inicio() {
   const [products, setProducts] = useState(info.products)
-  const { addProductToCart } = useContext(ProductsContext)
+  const { user, addProductToCart } = useContext(ProductsContext)
+  const { viewModal, setViewModal } = useContext(InicioContext)
 
   return (
     <LayoutPage className="Inicio">
@@ -16,7 +18,7 @@ export function Inicio() {
         {
           products.map((product, i) => {
             const handleClickAddToCart = (e) => {
-              addProductToCart(product)
+              user.name ? addProductToCart(product) : setViewModal(true)
             }
             return (
               <CardProducts key={product.id} title={product.title}
@@ -30,6 +32,9 @@ export function Inicio() {
           })
         }
       </main>
+      {viewModal && <Modal>
+        ALGO
+      </Modal>}
     </LayoutPage>
   )
 }
