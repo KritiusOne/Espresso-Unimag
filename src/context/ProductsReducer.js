@@ -10,9 +10,10 @@ export const initialState = {
 export function ProductsReducer(state, action){
   switch (action.type) {
     case ActionTYPES.ADD_TO_CART: {
+      const sortArray = [...state.cart, action.payload]
       return {
         ...state,
-        cart: [...state.cart, action.payload]
+        cart: sortArray
       };
     }
     case ActionTYPES.DELETE_FROM_CART: {
@@ -45,8 +46,11 @@ export function ProductsReducer(state, action){
     case ActionTYPES.ADD_MORE_THE_SAME_PRODUCT: {
       const [productToMore] = state.cart.filter(product=>product.id == action.payload.id)
       productToMore.cantidad += parseInt(action.payload.cantidad)
+      const index = state.cart.indexOf(action.payload.id)
+      const copyCart = [...state.cart.filter(product=> product.id != action.payload.id)]
+      index > 0 ? copyCart.splice(index, index-1, productToMore) : copyCart.splice(index, index, productToMore) 
       return {
-        ...state, cart: [...state.cart, productToMore]
+        ...state, cart: copyCart
       }
     }
     default:{
