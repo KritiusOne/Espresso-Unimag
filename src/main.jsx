@@ -7,11 +7,9 @@ import './index.css'
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <MetaInfoContext>
-        <MyRoutes />
-      </MetaInfoContext>
-    </BrowserRouter>
-  </React.StrictMode>,
+  <BrowserRouter>
+    <MetaInfoContext>
+      <MyRoutes />
+    </MetaInfoContext>
+  </BrowserRouter>
 )

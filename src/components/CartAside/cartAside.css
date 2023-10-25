@@ -31,6 +31,20 @@
   background-color: var(--color-bg-blue);
   height: 100%;
   color: var(--color-white);
+  font-size: var(--text-lg);
+}
+
+.cartAside__header__buttonClose {
+  background-color: transparent;
+  color: var(--color-white);
+  outline: none;
+  border-radius: 50%;
+  border: 1 solid var(--color-white);
+  cursor: pointer;
+}
+
+.cartAside__header__buttonClose {
+  font-size: var(--text-lg);
 }
 
 .cartAside__main {
@@ -67,6 +81,7 @@
   outline: none;
   border: none;
   padding: 5px;
+  cursor: pointer;
 }
 
 .cartAside__footer__button--blue {

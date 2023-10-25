@@ -17,12 +17,15 @@ export function CartAside() {
       <aside className='cartAside'>
         <header className='cartAside__header'>
           <Subtitle> Tu lista de productos  </Subtitle>
-          <AiFillCloseCircle />
+          <Button clickHandler={handleClickBackToProducts} Icon={AiFillCloseCircle} className="cartAside__header__buttonClose" />
         </header>
         <main className='cartAside__main'>
           {
-            cart.length ? cart.map(product => <CartProductCard
-              nameProduct={product.title} price={product.price} srcImg={product.images[0]} cantidad={product.cantidad} key={product.id} />) : <h6> No hay elementos en el carrito </h6>
+            cart.length ? cart.map(product => {
+              console.log(product.id)
+              return (<CartProductCard id={product.id}
+                nameProduct={product.title} price={product.price} srcImg={product.images[0]} cantidad={product.cantidad} key={product.id} />)
+            }) : <h6> No hay elementos en el carrito </h6>
           }
         </main>
         <footer className='cartAside__footer'>

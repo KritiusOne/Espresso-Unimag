@@ -42,6 +42,13 @@ export function ProductsReducer(state, action){
         ...state, viewCart: action.payload
       }
     }
+    case ActionTYPES.ADD_MORE_THE_SAME_PRODUCT: {
+      const [productToMore] = state.cart.filter(product=>product.id == action.payload.id)
+      productToMore.cantidad += parseInt(action.payload.cantidad)
+      return {
+        ...state, cart: [...state.cart, productToMore]
+      }
+    }
     default:{
       return state;
     }

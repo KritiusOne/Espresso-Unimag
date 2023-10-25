@@ -1,8 +1,16 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Button } from '../buttons/Button'
+import { ProductsContext } from '../../context/productsContext'
 import "./cartProductCard.css"
 
-export function CartProductCard({ price, nameProduct, srcImg, cantidad }) {
+export function CartProductCard({ price, nameProduct, srcImg, cantidad, id }) {
+  const { addMoreProductToCart } = useContext(ProductsContext)
+  const reduceToProduct = () => {
+    addMoreProductToCart(id, -1)
+  }
+  const AugmentToProduct = () => {
+    addMoreProductToCart(id, 1)
+  }
   return (
     <article className='cartProductCard'>
       <section className='cartProductCard__section card--section-1'>
@@ -15,9 +23,9 @@ export function CartProductCard({ price, nameProduct, srcImg, cantidad }) {
       <section className='cartProductCard__section card--section-3'>
         <h5 className='cartProductCard__section__titleCant'> Cant </h5>
         <footer className='cartProductCard__section__footer'>
-          <Button title='-' className="cartProductCard__buttonCantidad" />
+          <Button title='-' className="cartProductCard__buttonCantidad" clickHandler={reduceToProduct} />
           <strong className='cartProductCard__cantidad'> {cantidad} </strong>
-          <Button title='+' className="cartProductCard__buttonCantidad" />
+          <Button title='+' clickHandler={AugmentToProduct} className="cartProductCard__buttonCantidad" />
         </footer>
       </section>
     </article>
