@@ -3,7 +3,7 @@ import { AiOutlineCloseCircle } from "react-icons/ai"
 import { InicioContext } from '../../Pages/Inicio/InicioContext'
 import "./modal.css"
 
-export function Modal({ children }) {
+export function Modal({ children, ...props }) {
   const { setViewModal } = useContext(InicioContext)
   const handleClickCloseModal = () => {
     setViewModal(false)
@@ -12,7 +12,7 @@ export function Modal({ children }) {
     <section className='modalOverlay'>
       <section className='modal'>
         <AiOutlineCloseCircle className="modal__icon" onClick={handleClickCloseModal} />
-        <main className='modal__main'>
+        <main {...props} className={`modal__main ${props.className}`} >
           {
             children
           }

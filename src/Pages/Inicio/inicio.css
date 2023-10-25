@@ -18,3 +18,51 @@
   place-content: center;
   grid-template-rows: repeat(auto-fit, minmax(300px, 350px));
 }
+
+.Inicio__modal {
+  background-color: var(--color-white);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.Inicio__modal__title,
+.Inicio__modal__singIn,
+.Inicio__modal__singIn__link,
+.Inicio__modal__button {
+  font-size: var(--text-3xl);
+  color: var(--color-black);
+}
+
+.Inicio__modal__button,
+.Inicio__modal__singIn__link {
+  text-decoration: none;
+  cursor: pointer;
+  font-weight: bold;
+
+}
+
+.Inicio__modal__button {
+  background-color: var(--color-bg-blue);
+  width: 20%;
+  height: 3rem;
+  line-height: 1.5;
+  text-align: center;
+  color: var(--color-white);
+}
+
+.Inicio__modal__button:hover {
+  background-color: var(--color-bgButton-yellow);
+  color: var(--color-black);
+}
+
+.Inicio__modal__singIn__link {
+  text-transform: capitalize;
+}
+
+.Inicio__modal__singIn__link:hover {
+  color: var(--color-bgButton-yellow);
+}

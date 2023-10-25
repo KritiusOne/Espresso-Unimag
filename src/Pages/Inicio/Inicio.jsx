@@ -5,6 +5,8 @@ import { LayoutPage } from '../../components/layout/LayoutPage.jsx'
 import { ProductsContext } from '../../context/productsContext.js'
 import { Modal } from '../../components/modal/Modal.jsx'
 import { InicioContext } from './InicioContext.js'
+import { Link } from 'react-router-dom'
+import { TypesRoutes } from "../../routes/TypesRoutes.js"
 import "./inicio.css"
 
 export function Inicio() {
@@ -32,8 +34,12 @@ export function Inicio() {
           })
         }
       </main>
-      {viewModal && <Modal>
-        ALGO
+      {viewModal && <Modal className="Inicio__modal">
+        <h6 className='Inicio__modal__title'>
+          Para agregar productos al carrito de compras
+        </h6>
+        <Link to={TypesRoutes.LOG_IN} className="Inicio__modal__button"> Iniciar Sesion </Link>
+        <small className='Inicio__modal__singIn'>No tienes cuenta? <Link className='Inicio__modal__singIn__link' to={TypesRoutes.SING_IN} >crea una</Link> </small>
       </Modal>}
     </LayoutPage>
   )
