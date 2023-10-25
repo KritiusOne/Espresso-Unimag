@@ -1,5 +1,4 @@
-import { LogInForm } from '../../components/logIn/LogInForm.jsx'
-import { Header } from '../../components/header/Header.jsx'
+import { LogInForm } from '../../components/forms/LogInForm.jsx'
 import bgImg from '../../assets/bgLogin.jpg'
 import { LayoutPage } from '../../components/layout/LayoutPage.jsx'
 import './App.css'
