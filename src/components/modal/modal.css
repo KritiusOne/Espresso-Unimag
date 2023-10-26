@@ -30,4 +30,5 @@
   right: 10px;
   top: 10px;
   font-size: var(--text-2xl);
+  cursor: pointer;
 }
