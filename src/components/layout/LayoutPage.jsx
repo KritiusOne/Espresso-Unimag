@@ -17,6 +17,7 @@ export function LayoutPage({ children, ...props }) {
       {
         viewCart && <CartAside />
       }
+
     </>
   )
 }

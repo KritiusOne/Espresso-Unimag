@@ -1,0 +1,15 @@
+.footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  height: 100px;
+  gap: 40px;
+  color: var(--color-white);
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 100%;
+}
+
+.footer__subtitle {
+  font-weight: normal;
+}
