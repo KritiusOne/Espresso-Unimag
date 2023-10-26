@@ -26,7 +26,6 @@ export function ProductsContextProvider({ children }) {
       cantidad: 1
     }
     const filterProduct = state.cart.filter(product1 => product1.id == newProduct.id)
-    console.log(filterProduct)
     if (product && filterProduct.length == 0) {
       dispatch({
         type: ActionTYPES.ADD_TO_CART,

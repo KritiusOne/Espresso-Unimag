@@ -50,6 +50,17 @@
   width: 15%;
 }
 
+.header__nav__list__inputText {
+  border: none;
+  outline: none;
+  border-radius: 20px;
+  padding: 5px;
+}
+
+.header__nav__list__icon {
+  cursor: pointer;
+}
+
 .header__button--LogIn,
 .header__nav__button,
 .header__button--SingIn {

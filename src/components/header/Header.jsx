@@ -4,6 +4,7 @@ import { useContext } from "react"
 import { ProductsContext } from "../../context/productsContext"
 import { ProfileButtons } from "../buttons/ProfileButtons"
 import { IgnoreButtons } from "../buttons/IgnoreButtons"
+import { BsSearch } from "react-icons/bs"
 import "./header.css"
 
 export function Header() {
@@ -27,7 +28,8 @@ export function Header() {
             <Link to="/products" className="header__nav__button">Productos</Link>
           </li>
           <li className="header__nav__list--container">
-            <input type="text" />
+            <input type="text" className="header__nav__list__inputText" />
+            <BsSearch className="header__nav__list__icon" />
           </li>
           <li className="header__nav__list--container">
             <Link to="/about-Us" className="header__nav__button">Nosotros</Link>

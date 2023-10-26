@@ -22,7 +22,6 @@ export function CartAside() {
         <main className='cartAside__main'>
           {
             cart.length ? cart.map(product => {
-              console.log(product.id)
               return (<CartProductCard id={product.id}
                 nameProduct={product.title} price={product.price} srcImg={product.images[0]} cantidad={product.cantidad} key={product.id} />)
             }) : <h6> No hay elementos en el carrito </h6>

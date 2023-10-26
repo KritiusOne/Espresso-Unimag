@@ -46,11 +46,9 @@ export function ProductsReducer(state, action){
     case ActionTYPES.ADD_MORE_THE_SAME_PRODUCT: {
       const [productToMore] = state.cart.filter(product=>product.id == action.payload.id)
       productToMore.cantidad += parseInt(action.payload.cantidad)
-      const index = state.cart.indexOf(action.payload.id)
-      const copyCart = [...state.cart.filter(product=> product.id != action.payload.id)]
-      index > 0 ? copyCart.splice(index, index-1, productToMore) : copyCart.splice(index, index, productToMore) 
+      
       return {
-        ...state, cart: copyCart
+        ...state, cart: [...state.cart]
       }
     }
     default:{
