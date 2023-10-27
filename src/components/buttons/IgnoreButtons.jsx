@@ -5,10 +5,14 @@ export function IgnoreButtons() {
   return (
     <>
       <Link to="/login" className="header__button--LogIn">
-        Iniciar Sesion
+        <small className='header__button__name'>
+          Iniciar Sesion
+        </small>
       </Link>
       <Link to="/singIn" className="header__button--SingIn">
-        Registrarse
+        <small className='header__button__name name--singIn'>
+          Registrarse
+        </small>
       </Link>
     </>
   )

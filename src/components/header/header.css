@@ -74,7 +74,9 @@
 .header__button--LogIn,
 .header__button--SingIn {
   color: var(--color-black);
-  line-height: 4;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .header__button--LogIn:hover,

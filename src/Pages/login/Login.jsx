@@ -6,12 +6,14 @@ import './App.css'
 export function Login() {
   return (
     <LayoutPage className="Login">
-      <main className="Login__main">
-        <LogInForm />
-        <section className='form--container__img'>
-          <img src={bgImg} alt="Cafetería Unimagdalena" />
-        </section>
-      </main>
+      <section className='Login--container'>
+        <main className="Login__main">
+          <LogInForm />
+          <section className='form--container__img'>
+            <img src={bgImg} alt="Cafetería Unimagdalena" />
+          </section>
+        </main>
+      </section>
     </LayoutPage>
   )
 }
