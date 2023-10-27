@@ -20,7 +20,7 @@
 
 .cartAside,
 .cartAside>* {
-  overflow-x: none;
+  overflow-x: hidden;
 }
 
 .cartAside__header {
@@ -49,7 +49,7 @@
 }
 
 .cartAside__main {
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 .cartAside__footer {

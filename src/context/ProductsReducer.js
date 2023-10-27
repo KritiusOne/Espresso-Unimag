@@ -5,7 +5,8 @@ export const initialState = {
     password: ""
   },
   cart: [],
-  viewCart: false
+  viewCart: false,
+  filters: ""
 } 
 export function ProductsReducer(state, action){
   switch (action.type) {
@@ -49,6 +50,11 @@ export function ProductsReducer(state, action){
       
       return {
         ...state, cart: [...state.cart]
+      }
+    }
+    case ActionTYPES.SET_FILTER: {
+      return {
+        ...state, filters: action.payload
       }
     }
     default:{

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { CardProducts } from '../../components/cards/CardProducts.jsx'
 import info from "../../utils/datafake/products.json"
 import { LayoutPage } from '../../components/layout/LayoutPage.jsx'
@@ -11,8 +11,13 @@ import "./inicio.css"
 
 export function Inicio() {
   const [products, setProducts] = useState(info.products)
-  const { user, addProductToCart } = useContext(ProductsContext)
+  const { user, addProductToCart, filters } = useContext(ProductsContext)
   const { viewModal, setViewModal } = useContext(InicioContext)
+
+  useEffect(() => {
+    console.log("Estoy usando recursos")
+    setProducts(info.products.filter(product => product.title.toLowerCase().includes(filters.toLowerCase())))
+  }, [filters])
 
   return (
     <LayoutPage className="Inicio">

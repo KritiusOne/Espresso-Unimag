@@ -1,6 +1,6 @@
 import logo from "../../assets/logo.png"
 import { Link } from "react-router-dom"
-import { useContext } from "react"
+import { useContext, useState } from "react"
 import { ProductsContext } from "../../context/productsContext"
 import { ProfileButtons } from "../buttons/ProfileButtons"
 import { IgnoreButtons } from "../buttons/IgnoreButtons"
@@ -8,7 +8,10 @@ import { BsSearch } from "react-icons/bs"
 import "./header.css"
 
 export function Header() {
-  const { user } = useContext(ProductsContext)
+  const { user, setFilterName } = useContext(ProductsContext)
+  const handleChangeFilter = (e) => {
+    setFilterName(e.target.value)
+  }
   return (
     <header className="header">
       <div className="header--container">
@@ -28,7 +31,7 @@ export function Header() {
             <Link to="/products" className="header__nav__button">Productos</Link>
           </li>
           <li className="header__nav__list--container">
-            <input type="text" className="header__nav__list__inputText" />
+            <input type="text" className="header__nav__list__inputText" onChange={handleChangeFilter} />
             <BsSearch className="header__nav__list__icon" />
           </li>
           <li className="header__nav__list--container">

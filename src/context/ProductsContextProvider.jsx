@@ -51,12 +51,20 @@ export function ProductsContextProvider({ children }) {
       payload: id
     })
   }
+  /* FUNCIONES DE LOS FILTROS */
+  const setFilterName = (filter) => {
+    dispatch({
+      type: ActionTYPES.SET_FILTER,
+      payload: filter
+    })
+  }
   return (
     <ProductsContext.Provider value={
       {
         cart: state.cart,
         user: state.user,
         viewCart: state.viewCart,
+        filters: state.filters, setFilterName,
         getUser, addProductToCart,
         changeViewFromCart, addMoreProductToCart,
         deleteProductOnCart

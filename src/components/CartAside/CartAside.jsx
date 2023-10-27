@@ -28,7 +28,10 @@ export function CartAside() {
           }
         </main>
         <footer className='cartAside__footer'>
-          <h5 className='cartAside__footer__title'>Subtotal: <h6 className='cartAside__footer__subtotal'>$ { } </h6></h5>
+          <h6 className='cartAside__footer__title'>
+            Subtotal: <strong className='cartAside__footer__subtotal'>$ { }
+            </strong>
+          </h6>
           <Button className="cartAside__footer__button--blue" title="Continuar al carrito" />
           <Button className="cartAside__footer__button--yellow" title="Volver a seguir comprando" Icon={AiOutlineReload} clickHandler={handleClickBackToProducts} />
         </footer>
