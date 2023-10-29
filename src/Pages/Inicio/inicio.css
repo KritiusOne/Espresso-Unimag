@@ -3,15 +3,17 @@
   flex-direction: column;
   background-color: var(--color-bg-grey);
   margin-top: 20px;
+  height: 100%;
+  flex-grow: 1;
 }
 
 .inicio__main {
-  max-width: var(--w-screen-md);
+  height: 100%;
   width: 100%;
+  max-width: var(--w-screen-md);
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 10px;
-  height: 100%;
   margin: 100px auto;
   background-color: var(--color-bg-grey);
   padding: 20px;
@@ -65,4 +67,10 @@
 
 .Inicio__modal__singIn__link:hover {
   color: var(--color-bgButton-yellow);
+}
+
+@media (min-width: 1500px) {
+  .inicio__main {
+    max-width: var(--w-screen-xl);
+  }
 }
