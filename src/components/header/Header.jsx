@@ -5,6 +5,7 @@ import { ProductsContext } from "../../context/productsContext"
 import { ProfileButtons } from "../buttons/ProfileButtons"
 import { IgnoreButtons } from "../buttons/IgnoreButtons"
 import { BsSearch } from "react-icons/bs"
+import 'bootstrap/dist/css/bootstrap.min.css'; // Importa el archivo CSS de Bootstrap
 import "./header.css"
 
 export function Header() {
@@ -12,33 +13,46 @@ export function Header() {
   const handleChangeFilter = (e) => {
     setFilterName(e.target.value)
   }
+
   return (
     <header className="header">
-      <div className="header--container">
-        <div className="header__img--container">
-          <img src={logo} alt="" className="header__logo" />
-        </div>
-        <div className="header__img--container">
-          {
-            !user.name ? <IgnoreButtons /> : <ProfileButtons />
-          }
+      <div className="container bg-white">
+        <div className="row">
+          <div className="col-md-6">
+            <div className="header_img_container">
+              <img src={logo} alt="" className="header__logo" />
+            </div>
+          </div>
+          <div className="col-md-6">
+            <div className="header_btn_container">
+              {
+                !user.name ? <IgnoreButtons /> : <ProfileButtons />
+              }
+            </div>
+          </div>
         </div>
       </div>
-      <nav className="header__nav">
-        <ul className="header__nav__list">
-          <li className="header__nav__list--container">
-            <Link to="/" className="header__nav__button">Inicio</Link>
-            <Link to="/products" className="header__nav__button">Productos</Link>
-          </li>
-          <li className="header__nav__list--container">
-            <input type="text" className="header__nav__list__inputText" onChange={handleChangeFilter} />
-            <BsSearch className="header__nav__list__icon" />
-          </li>
-          <li className="header__nav__list--container">
-            <Link to="/about-Us" className="header__nav__button">Nosotros</Link>
-            <Link to="/preguntas-frecuentes" className="header__nav__button">Preguntas frecuentes</Link>
-          </li>
-        </ul>
+
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div className="container d-flex justify-content-between">
+          <ul className="navbar-nav">
+            <li className="nav-item">
+              <Link to="/" className="nav-link">Inicio</Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/products" className="nav-link">Productos</Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/about-Us" className="nav-link">Nosotros</Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/preguntas-frecuentes" className="nav-link">Preguntas frecuentes</Link>
+            </li>
+          </ul>
+          <div className="nav-item">
+            <input type="text" className="form-control" onChange={handleChangeFilter} placeholder="Buscar" />
+          </div>
+        </div>
       </nav>
     </header>
   )
