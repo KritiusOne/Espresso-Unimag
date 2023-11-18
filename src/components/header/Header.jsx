@@ -1,14 +1,16 @@
-import logo from "../../assets/logo.png"
+import { useContext } from "react"
 import { Link } from "react-router-dom"
-import { useContext, useState } from "react"
-import { ProductsContext } from "../../context/productsContext"
-import { ProfileButtons } from "../buttons/ProfileButtons"
-import { IgnoreButtons } from "../buttons/IgnoreButtons"
+import logo from "../../assets/logo.png"
 import { BsSearch } from "react-icons/bs"
+import { IgnoreButtons } from "../buttons/IgnoreButtons"
+import { ProfileButtons } from "../buttons/ProfileButtons"
+import { ProductsContext } from "../../context/productsContext"
+import { useAuth } from "../../context/authContext/AuthContext"
 import "./header.css"
 
 export function Header() {
-  const { user, setFilterName } = useContext(ProductsContext)
+  const { setFilterName } = useContext(ProductsContext)
+  const { currentUser } = useAuth()
   const handleChangeFilter = (e) => {
     setFilterName(e.target.value)
   }
@@ -20,7 +22,7 @@ export function Header() {
         </div>
         <div className="header__img--container">
           {
-            !user.name ? <IgnoreButtons /> : <ProfileButtons />
+            !currentUser ? <IgnoreButtons /> : <ProfileButtons />
           }
         </div>
       </div>

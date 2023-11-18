@@ -8,10 +8,12 @@ import { InicioContext } from './InicioContext.js'
 import { Link } from 'react-router-dom'
 import { TypesRoutes } from "../../routes/TypesRoutes.js"
 import "./inicio.css"
+import { useAuth } from '../../context/authContext/AuthContext.jsx'
 
 export function Inicio() {
   const [products, setProducts] = useState(info.products)
-  const { user, addProductToCart, filters } = useContext(ProductsContext)
+  const { currentUser } = useAuth()
+  const { addProductToCart, filters } = useContext(ProductsContext)
   const { viewModal, setViewModal } = useContext(InicioContext)
 
   useEffect(() => {
@@ -25,7 +27,7 @@ export function Inicio() {
         {
           products.map((product, i) => {
             const handleClickAddToCart = (e) => {
-              user.name ? addProductToCart(product) : setViewModal(true)
+              currentUser ? addProductToCart(product) : setViewModal(true)
             }
             return (
               <CardProducts key={product.id} title={product.title}

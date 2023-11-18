@@ -7,18 +7,6 @@ import allUsers from "../utils/datafake/users.json"
 export function ProductsContextProvider({ children }) {
   const [state, dispatch] = useReducer(ProductsReducer, initialState)
 
-  //FUNCIONES DE LOS USUARIOS
-  const getUser = (username, password) => {
-    const [user] = allUsers.filter(user => username == user.email && password == user.password)
-    if (user) {
-      dispatch({
-        type: ActionTYPES.LOGIN_USER_DATA,
-        payload: user
-      })
-    } else {
-      //usuario o contraseña incorrectos
-    }
-  }
   //FUNCIONES DEL CARRITO
   const addProductToCart = (product) => {
     const newProduct = {
@@ -62,10 +50,9 @@ export function ProductsContextProvider({ children }) {
     <ProductsContext.Provider value={
       {
         cart: state.cart,
-        user: state.user,
         viewCart: state.viewCart,
         filters: state.filters, setFilterName,
-        getUser, addProductToCart,
+        addProductToCart,
         changeViewFromCart, addMoreProductToCart,
         deleteProductOnCart
       }}>

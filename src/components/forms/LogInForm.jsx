@@ -1,28 +1,32 @@
-import { useState, useContext, useEffect } from 'react'
-import { ProductsContext } from "../../context/productsContext"
+import { useState } from 'react'
 import { Title } from '../titles/title/Title'
 import { Subtitle } from '../titles/subtitle/Subtitle'
 import { useNavigate } from 'react-router'
 import { TypesRoutes } from "../../routes/TypesRoutes.js"
+import { validatorEmail } from '../../utils/validation.js'
 import "./loginForm.css"
+import { useAuth } from '../../context/authContext/AuthContext.jsx'
 
 export function LogInForm() {
-  const context = useContext(ProductsContext)
+  const authContext = useAuth()
   const navegate = useNavigate()
   const [userPending, setUserPending] = useState({
     username: "",
     password: ""
   })
-  let validatorEmail = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/
-  useEffect(() => {
-    if (context.user.name) {
-      navegate(TypesRoutes.HOME)
-    }
-  }, [context.user])
-  const handleSubmit = (e) => {
+  console.log(authContext)
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    //Aquí hariamos una peticion asincronica por medio de un custom hook
-    context.getUser(userPending.username, userPending.password)
+    if (userPending.username != "" && userPending.password != "") {
+      try {
+        const response = await authContext.login(userPending.username, userPending.password)
+        navegate(TypesRoutes.HOME)
+      } catch (error) {
+        console.log(error.message)
+      }
+    } else {
+      console.log("ALgo falta")
+    }
   }
   const handleChangeText = (e) => {
     let posibleEmail = e.target.value
