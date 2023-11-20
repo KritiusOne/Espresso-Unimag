@@ -13,20 +13,20 @@ export function SingInForm() {
   const { signup } = useAuth()
   const navegate = useNavigate()
   const handleChangeEmail = (e) => {
-    const posibleEmail = e.target.value
+    const posibleEmail = e.target.value.trim()
     if (validatorEmail.test(posibleEmail)) {
       setUserRegistro(
         {
           ...userRegistro,
-          email: posibleEmail.toLowerCase()
+          email: posibleEmail
         }
       )
     } else {
-      console.log("El Email no cumple con los requisitos o no es valido")
+      console.log("El Email no cumple con los requisitos o no es valido")//EN estos else debería haber cambios en la ui
     }
   }
   const handleChangeName = (e) => {
-    const posibleName = e.target.value
+    const posibleName = e.target.value.trim()
     if (validationName.test(posibleName)) {
       setUserRegistro(
         {
@@ -35,20 +35,20 @@ export function SingInForm() {
         }
       )
     } else {
-      console.log("EL nombre no cumple con los requisitos")
+      console.log("EL nombre no cumple con los requisitos") //EN estos else debería haber cambios en la ui
     }
   }
   const handlePassword = (e) => {
-    const posiblePassword = e.target.value
+    const posiblePassword = e.target.value.trim()
     if (validatorPassword.test(posiblePassword)) {
       setUserRegistro(
         {
           ...userRegistro,
-          password: posiblePassword.toLowerCase()
+          password: posiblePassword
         }
       )
     } else {
-      console.log("La contraseña no cumple con los requisitos")
+      console.log("La contraseña no cumple con los requisitos")//EN estos else debería haber cambios en la ui
     }
   }
 
@@ -63,7 +63,7 @@ export function SingInForm() {
         console.log(error)
       }
     } else {
-      console.log("Falta algo")
+      console.log("Falta algo") //EN estos else debería haber cambios en la ui
     }
   }
   return (
