@@ -1,7 +1,9 @@
 import { Avatar } from '../avatar/Avatar'
 import { CartButton } from './CartButton'
 import { useAuth } from '../../context/authContext/AuthContext'
+import { Link } from 'react-router-dom'
 import "./profileButton.css"
+import { PrivateRoutes } from '../../routes/TypesRoutes'
 
 
 export function ProfileButtons() {
@@ -20,14 +22,14 @@ export function ProfileButtons() {
   return (
     <div className='profileButtons'>
       <CartButton />
-      <button className='profileButtons__userButton' >
+      <Link to={PrivateRoutes.PROFILE} className='profileButtons__userButton' >
         <strong className='profileButtons__userButton__title'>
           {
             currentUser.displayName ? currentUser.displayName : emailName
           }
         </strong>
         <Avatar />
-      </button>
+      </Link>
     </div>
   )
 }
