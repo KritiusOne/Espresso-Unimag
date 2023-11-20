@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { AiOutlineCloseCircle } from "react-icons/ai"
-import { InicioContext } from '../../Pages/Inicio/InicioContext'
+import { InicioContext } from '../../Pages/productos/InicioContext'
 import "./modal.css"
 
 export function Modal({ children, ...props }) {

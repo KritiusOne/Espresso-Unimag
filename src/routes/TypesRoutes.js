@@ -7,3 +7,6 @@ export const TypesRoutes = {
   SING_IN: "/singin",
   ERROR_404: "*",
 }
+export const PrivateRoutes = {
+  PROFILE: "/profile/:userId"
+}

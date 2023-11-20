@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { InicioContext } from "./InicioContext.js"
-import { Inicio } from './Inicio.jsx'
+import { Productos } from './Productos.jsx'
 export function InicioContextProvider({ children }) {
   const [viewModal, setViewModal] = useState(false)
   return (
