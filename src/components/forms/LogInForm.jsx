@@ -6,6 +6,7 @@ import { TypesRoutes } from "../../routes/TypesRoutes.js"
 import { validatorEmail } from '../../utils/validation.js'
 import "./loginForm.css"
 import { useAuth } from '../../context/authContext/AuthContext.jsx'
+import { getUser } from '../../services/getUser.js'
 
 export function LogInForm() {
   const authContext = useAuth()
@@ -18,11 +19,21 @@ export function LogInForm() {
   const handleSubmit = async (e) => {
     e.preventDefault()
     if (userPending.username != "" && userPending.password != "") {
-      try {
-        const response = await authContext.login(userPending.username, userPending.password)
-        navegate(TypesRoutes.HOME)
-      } catch (error) {
-        console.log(error.message)
+      const responseBBDD = await getUser(authContext.rol)
+      if (!responseBBDD.ok) {
+        throw new Error("La peticion esta saliendo mal")
+      }
+      const responseTransform = await responseBBDD.json()
+      const [userInCase] = responseTransform.filter((user) => user.correo == userPending.username)
+      if (userInCase != undefined) {
+        try {
+          const response = await authContext.login(userPending.username, userPending.password)
+          navegate(TypesRoutes.HOME)
+        } catch (error) {
+          console.log(error.message)
+        }
+      } else {
+        throw new Error("Se esta accediendo a un usuario al que no le corresponden los roles asignados")
       }
     } else {
       console.log("ALgo falta")

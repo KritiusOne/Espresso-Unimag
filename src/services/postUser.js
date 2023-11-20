@@ -1,6 +1,8 @@
-export async function postCliente(username, emailUser){
+import { getEndpointForRol } from "../utils/endpoints"
+export async function postUser(username, emailUser, rol){
+  const URLENDPOINT = getEndpointForRol(rol)
   try {
-    const response = await fetch("https://cafeapi20231114234957.azurewebsites.net/Clientes", {
+    const response = await fetch(URLENDPOINT, {
       method: "POST",
       headers: {
         "Content-Type": "application/json;charset: UTF-8"

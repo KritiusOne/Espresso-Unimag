@@ -7,12 +7,11 @@ import { validatorEmail, validationName, validatorPassword } from '../../utils/v
 import { SingInContext } from '../../Pages/singIn/SingInContext'
 import "./singInForm.css"
 import { useAuth } from '../../context/authContext/AuthContext'
-import { postCliente } from '../../services/postCliente'
-import { RolesTypes } from '../../utils/RolesTypes'
+import { postUser } from '../../services/postUser'
 
 export function SingInForm() {
   const { userRegistro, setUserRegistro } = useContext(SingInContext)
-  const { setRol, signup } = useAuth()
+  const { rol, setRol, signup } = useAuth()
   const navegate = useNavigate()
   const handleChangeEmail = (e) => {
     const posibleEmail = e.target.value.trim()
@@ -57,13 +56,11 @@ export function SingInForm() {
   const handleClickRegister = async (e) => {
     e.preventDefault()
     if (userRegistro.email != "" && userRegistro.password != "") {
-      const response = await postCliente(userRegistro.nombre, userRegistro.email)
-      if (!response.ok) throw new Error("Error al registrar usuario en la bbdd")
-      if (userRegistro.rol == RolesTypes.ADMINISTRADOR) setRol(RolesTypes.ADMINISTRADOR)
-      if (userRegistro.rol == RolesTypes.CLIENTE) setRol(RolesTypes.CLIENTE)
-      if (userRegistro.rol == RolesTypes.VENDEDOR) setRol(RolesTypes.VENDEDOR)
+      const response = await postUser(userRegistro.nombre, userRegistro.email, rol)
+      if (!response.ok) { throw new Error("Error al registrar usuario en la bbdd") }
       try {
-        const user = await signup(userRegistro.email, userRegistro.password)
+
+        const user = await signup(userRegistro.email, userRegistro.password,)
         navegate(TypesRoutes.HOME)
       } catch (error) {
         console.log(error)
