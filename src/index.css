@@ -24,7 +24,10 @@ body {
   --color-white: #fff;
   --color-black: #000;
   --color-bg-grey: #f0f2f5;
+  --color-bg-darkGrey: #A6A6A6;
   --color-bg-blue: #20638C;
+  --color-bg-green: #A3BF8F;
+  --color-bg-yellow: #D9B07E;
   --color-bgButton-yellow: #F2A20C;
   --color-bgButton-purple: #8F1884;
   /*

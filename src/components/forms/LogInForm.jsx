@@ -28,7 +28,6 @@ export function LogInForm() {
       console.log("ALgo falta")
     }
   }
-  console.log(userPending)
   const handleChangeText = (e) => {
     let posibleEmail = e.target.value.trim().toLowerCase()
     if (validatorEmail.test(posibleEmail)) {

@@ -1,16 +1,20 @@
 import { auth } from "../../firebase"
 import React, { useContext, useState, useEffect } from "react"
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth"
+import { RolesTypes } from "../../utils/RolesTypes"
 
 export const AuthContext = React.createContext()
 
 export function useAuth() {
-  return useContext(AuthContext)
+  const auth = useContext(AuthContext)
+  if (auth == undefined) {
+    throw new Error("No puedes acceder desde aqui al context auth")
+  } else return auth
 }
 
 export function AuthProvider({ children }) {
   const [currentUser, setCurrentUser] = useState()
-  const [rol, setRol] = useState()
+  const [rol, setRol] = useState(RolesTypes.CLIENTE)
   const [loading, setLoading] = useState(true)
   function signup(email, password) {
     return createUserWithEmailAndPassword(auth, email, password)

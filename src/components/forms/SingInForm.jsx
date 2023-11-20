@@ -7,10 +7,12 @@ import { validatorEmail, validationName, validatorPassword } from '../../utils/v
 import { SingInContext } from '../../Pages/singIn/SingInContext'
 import "./singInForm.css"
 import { useAuth } from '../../context/authContext/AuthContext'
+import { postCliente } from '../../services/postCliente'
+import { RolesTypes } from '../../utils/RolesTypes'
 
 export function SingInForm() {
   const { userRegistro, setUserRegistro } = useContext(SingInContext)
-  const { signup } = useAuth()
+  const { setRol, signup } = useAuth()
   const navegate = useNavigate()
   const handleChangeEmail = (e) => {
     const posibleEmail = e.target.value.trim()
@@ -22,7 +24,7 @@ export function SingInForm() {
         }
       )
     } else {
-      console.log("El Email no cumple con los requisitos o no es valido")//EN estos else debería haber cambios en la ui
+      console.log("El Email no cumple con los requisitos o no es valido")
     }
   }
   const handleChangeName = (e) => {
@@ -35,7 +37,7 @@ export function SingInForm() {
         }
       )
     } else {
-      console.log("EL nombre no cumple con los requisitos") //EN estos else debería haber cambios en la ui
+      console.log("EL nombre no cumple con los requisitos")
     }
   }
   const handlePassword = (e) => {
@@ -48,22 +50,26 @@ export function SingInForm() {
         }
       )
     } else {
-      console.log("La contraseña no cumple con los requisitos")//EN estos else debería haber cambios en la ui
+      console.log("La contraseña no cumple con los requisitos")
     }
   }
 
   const handleClickRegister = async (e) => {
     e.preventDefault()
     if (userRegistro.email != "" && userRegistro.password != "") {
+      const response = await postCliente(userRegistro.nombre, userRegistro.email)
+      if (!response.ok) throw new Error("Error al registrar usuario en la bbdd")
+      if (userRegistro.rol == RolesTypes.ADMINISTRADOR) setRol(RolesTypes.ADMINISTRADOR)
+      if (userRegistro.rol == RolesTypes.CLIENTE) setRol(RolesTypes.CLIENTE)
+      if (userRegistro.rol == RolesTypes.VENDEDOR) setRol(RolesTypes.VENDEDOR)
       try {
         const user = await signup(userRegistro.email, userRegistro.password)
-        console.log(user)
         navegate(TypesRoutes.HOME)
       } catch (error) {
         console.log(error)
       }
     } else {
-      console.log("Falta algo") //EN estos else debería haber cambios en la ui
+      console.log("Falta algo") //EN estos else debería haber cambios en
     }
   }
   return (

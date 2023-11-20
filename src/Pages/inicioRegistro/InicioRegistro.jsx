@@ -1,12 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { LayoutPage } from '../../components/layout/LayoutPage'
-import { useAuth } from '../../context/authContext/AuthContext'
+import { RolesTypes } from '../../utils/RolesTypes'
+import { CardTypeUser } from '../../components/cards/CardTypeUser'
+import "./inicioRegistro.css"
 
 export function InicioRegistro() {
+  const [posiblesRoles, setPosiblesRoles] = useState(Object.values(RolesTypes))
   return (
     <LayoutPage>
-      <main >
-
+      <main className='main' >
+        {
+          posiblesRoles.map((role) => {
+            return <CardTypeUser className={`${role}`} namecard={role} key={role} />
+          })
+        }
       </main>
     </LayoutPage>
   )

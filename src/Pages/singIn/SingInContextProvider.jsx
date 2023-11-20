@@ -6,7 +6,8 @@ export function SingInContextProvider({ children }) {
     {
       email: "",
       nombre: "",
-      password: ""
+      password: "",
+      role: ""
     }
   )
   return (
