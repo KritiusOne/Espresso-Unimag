@@ -49,9 +49,6 @@ export function Header() {
               <Link to="/preguntas-frecuentes" className="nav-link">Preguntas frecuentes</Link>
             </li>
           </ul>
-          <div className="nav-item">
-            <input type="text" className="form-control" onChange={handleChangeFilter} placeholder="Buscar" />
-          </div>
         </div>
       </nav>
     </header>
