@@ -1,13 +1,15 @@
 import { Avatar } from '../avatar/Avatar'
 import { CartButton } from './CartButton'
 import { useAuth } from '../../context/authContext/AuthContext'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import "./profileButton.css"
 import { PrivateRoutes } from '../../routes/TypesRoutes'
+import { Button } from './Button'
 
 
 export function ProfileButtons() {
   const { currentUser } = useAuth()
+  const navegate = useNavigate()
   const emailArr = [...currentUser.email]
   let position = 10000000
   const emailName = emailArr.filter((letra, i) => {
@@ -19,17 +21,20 @@ export function ProfileButtons() {
       return
     }
   }).join("").trim()
+  const handleClick = () => {
+    navegate(`/profile/${currentUser.uid}`)
+  }
   return (
     <div className='profileButtons'>
       <CartButton />
-      <Link to={PrivateRoutes.PROFILE} className='profileButtons__userButton' >
+      <button onClick={handleClick} className='profileButtons__userButton' >
         <strong className='profileButtons__userButton__title'>
           {
             currentUser.displayName ? currentUser.displayName : emailName
           }
         </strong>
         <Avatar />
-      </Link>
+      </button>
     </div>
   )
 }

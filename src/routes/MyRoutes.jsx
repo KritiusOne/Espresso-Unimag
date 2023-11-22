@@ -8,17 +8,24 @@ import { PrivateRoutes, TypesRoutes } from "./TypesRoutes"
 import { AuthGuard } from "../guards/Auth.guard"
 import { UserProfile } from "../Pages/user/UserProfile"
 import { InicioRegistro } from "../Pages/inicioRegistro/InicioRegistro"
+import { AntiAuthGuard } from "../guards/AntiAuth.guard"
 
 export function MyRoutes() {
   return (
     <Routes>
+      <Route element={<AntiAuthGuard />} >
+        <Route path={TypesRoutes.LOG_IN} element={<Login />} />
+      </Route>
+      <Route element={<AntiAuthGuard />} >
+        <Route path={TypesRoutes.SING_IN} element={<SingInIndex />} />
+      </Route>
+
       <Route path={TypesRoutes.HOME} element={<InicioRegistro />} />
-      <Route path={TypesRoutes.LOG_IN} element={<Login />} />
       <Route path={TypesRoutes.ABOUT_US} element={<Nosotros />} />
       <Route path={TypesRoutes.PREGUNTAS_FRECUENTES} element={<Preguntas />} />
-      <Route path={TypesRoutes.SING_IN} element={<SingInIndex />} />
-      <Route path={TypesRoutes.ERROR_404} element={<>Error 404 no encontrado</>} />
       <Route path={TypesRoutes.PRODUCTS} element={<ProductosExporter />} />
+      <Route path={TypesRoutes.ERROR_404} element={<>Error 404 no encontrado</>} />
+
       <Route element={<AuthGuard />}>
         <Route path={PrivateRoutes.PROFILE} element={<UserProfile />} />
       </Route>

@@ -8,5 +8,5 @@ export const TypesRoutes = {
   ERROR_404: "*",
 }
 export const PrivateRoutes = {
-  PROFILE: "/profile/:userId"
+  PROFILE: "/profile/:id"
 }
