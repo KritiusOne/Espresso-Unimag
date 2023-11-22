@@ -1,9 +1,5 @@
 import { ActionTYPES } from "./ActionTypes"
 export const initialState = {
-  user: {
-    username: "",
-    password: ""
-  },
   cart: [],
   viewCart: false,
   filters: ""
@@ -25,18 +21,13 @@ export function ProductsReducer(state, action){
     }
 
     case ActionTYPES.DELETE_ALL_FROM_CART: {
-      return productsInitialState;
+      return action.payload;
     }
 
     case ActionTYPES.CALCULATE_PRICE_FINAL: {
       return {
         ...state,
         totalPriceShoppingCart: state.cart.reduce((previousValue, product) => previousValue + product.price, 0)
-      }
-    }
-    case ActionTYPES.LOGIN_USER_DATA: {
-      return {
-        ...state, user: action.payload
       }
     }
     case ActionTYPES.CHANGE_STATE_VIEW_FROM_CART: {

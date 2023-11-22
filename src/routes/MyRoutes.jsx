@@ -30,6 +30,5 @@ export function MyRoutes() {
         <Route path={PrivateRoutes.PROFILE} element={<UserProfile />} />
       </Route>
     </Routes>
-
   )
 }

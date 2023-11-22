@@ -2,7 +2,6 @@ import React, { useReducer } from 'react'
 import { ProductsContext } from './productsContext'
 import { ProductsReducer, initialState } from './ProductsReducer'
 import { ActionTYPES } from './ActionTypes'
-import allUsers from "../utils/datafake/users.json"
 
 export function ProductsContextProvider({ children }) {
   const [state, dispatch] = useReducer(ProductsReducer, initialState)
@@ -39,6 +38,12 @@ export function ProductsContextProvider({ children }) {
       payload: id
     })
   }
+  const deleteAllProductsOnCart = () => {
+    dispatch({
+      type: ActionTYPES.DELETE_ALL_FROM_CART,
+      payload: initialState
+    })
+  }
   /* FUNCIONES DE LOS FILTROS */
   const setFilterName = (filter) => {
     dispatch({
@@ -54,7 +59,7 @@ export function ProductsContextProvider({ children }) {
         filters: state.filters, setFilterName,
         addProductToCart,
         changeViewFromCart, addMoreProductToCart,
-        deleteProductOnCart
+        deleteProductOnCart, deleteAllProductsOnCart
       }}>
       {
         children
