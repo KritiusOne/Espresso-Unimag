@@ -6,6 +6,6 @@ import { TypesRoutes } from '../routes/TypesRoutes'
 export function AntiAuthGuard() {
   const { currentUser } = useAuth()
   return (
-    currentUser == null ? <Outlet /> : <Navigate replace to={TypesRoutes.LOG_IN} />
+    currentUser == null ? <Outlet /> : <Navigate replace to={TypesRoutes.HOME} />
   )
 }
