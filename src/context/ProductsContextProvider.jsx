@@ -1,10 +1,14 @@
-import React, { useReducer } from 'react'
+import React, { useReducer, useState } from 'react'
 import { ProductsContext } from './productsContext'
 import { ProductsReducer, initialState } from './ProductsReducer'
 import { ActionTYPES } from './ActionTypes'
 
 export function ProductsContextProvider({ children }) {
   const [state, dispatch] = useReducer(ProductsReducer, initialState)
+  const [products, setProducts] = useState({
+    all: [],
+    onFilter: []
+  })
 
   //FUNCIONES DEL CARRITO
   const addProductToCart = (product) => {
@@ -59,7 +63,8 @@ export function ProductsContextProvider({ children }) {
         filters: state.filters, setFilterName,
         addProductToCart,
         changeViewFromCart, addMoreProductToCart,
-        deleteProductOnCart, deleteAllProductsOnCart
+        deleteProductOnCart, deleteAllProductsOnCart,
+        products, setProducts
       }}>
       {
         children

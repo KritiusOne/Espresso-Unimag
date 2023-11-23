@@ -16,7 +16,7 @@ export function ProductsReducer(state, action){
     case ActionTYPES.DELETE_FROM_CART: {
       return {
         ...state,
-        cart: state.cart.filter((product) => product.id !== action.payload)
+        cart: state.cart.filter((product) => product.id.creationTime !== action.payload)
       }
     }
 
@@ -36,7 +36,7 @@ export function ProductsReducer(state, action){
       }
     }
     case ActionTYPES.ADD_MORE_THE_SAME_PRODUCT: {
-      const [productToMore] = state.cart.filter(product=>product.id == action.payload.id)
+      const [productToMore] = state.cart.filter(product=> product.id.creationTime == action.payload.id)
       productToMore.cantidad += parseInt(action.payload.cantidad)
       
       return {

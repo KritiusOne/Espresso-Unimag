@@ -6,7 +6,7 @@ import './CardProducts.css'
 
 export function CardProducts({ imgSrc, title, price, description, handleClick, id }) {
   const { cart, deleteProductOnCart } = useContext(ProductsContext)
-  const [actualProduct] = cart.filter(product => product.id == id)
+  const [actualProduct] = cart.filter(product => product.id.creationTime == id)
   const handleDeleteProduct = (e) => {
     deleteProductOnCart(id)
   }
@@ -18,9 +18,9 @@ export function CardProducts({ imgSrc, title, price, description, handleClick, i
       <main className='card--container'>
         <h3 className='card__title'> {title} </h3>
         <section className='card__info--container'>
-          <strong className='card__price'>PRICE: $: {price} </strong>
+          <strong className='card__price'>Precio: $: {price} </strong>
           {
-            !actualProduct ? <Button className='card__buttton' Icon={BsCart4} title={"ADD"} clickHandler={handleClick} /> : <Button className='card__buttton button--delete' Icon={BsCart4} title={"Delete"} clickHandler={handleDeleteProduct} />
+            !actualProduct ? <Button className='card__buttton' Icon={BsCart4} title={"Agregar"} clickHandler={handleClick} /> : <Button className='card__buttton button--delete' Icon={BsCart4} title={"Delete"} clickHandler={handleDeleteProduct} />
           }
         </section>
       </main>

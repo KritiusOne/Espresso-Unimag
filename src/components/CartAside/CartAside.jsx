@@ -22,8 +22,8 @@ export function CartAside() {
         <main className='cartAside__main'>
           {
             cart.length ? cart.map(product => {
-              return (<CartProductCard id={product.id}
-                nameProduct={product.title} price={product.price} srcImg={product.images[0]} cantidad={product.cantidad} key={product.id} />)
+              return (<CartProductCard id={product.id.creationTime}
+                nameProduct={product.name} price={product.precio} srcImg={product.imagen} cantidad={product.cantidad} key={product.id.creationTime} />)
             }) : <h6> No hay elementos en el carrito </h6>
           }
         </main>

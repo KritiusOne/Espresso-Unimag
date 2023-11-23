@@ -5,6 +5,8 @@
   margin-top: 20px;
   height: 100%;
   flex-grow: 1;
+  justify-content: center;
+  align-items: center;
 }
 
 .inicio__main {
@@ -14,11 +16,18 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 10px;
-  margin: 100px auto;
   background-color: var(--color-bg-grey);
   padding: 20px;
   place-content: center;
   grid-template-rows: repeat(auto-fit, minmax(300px, 350px));
+}
+
+.sin--Filtro {
+  margin: -120px auto;
+}
+
+.con--Filtro {
+  margin: 100px auto;
 }
 
 .Inicio__modal {
