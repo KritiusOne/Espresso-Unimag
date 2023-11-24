@@ -1,8 +1,9 @@
-import React, { useContext } from 'react'
-import { BsCart4 } from "react-icons/bs"
-import { Button } from '../buttons/Button'
-import { ProductsContext } from '../../context/productsContext'
-import './CardProducts.css'
+import React, { useContext } from 'react';
+import { BsCart4 } from 'react-icons/bs';
+import { Button } from '../buttons/Button';
+import { ProductsContext } from '../../context/productsContext';
+import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
+import './CardProducts.css';
 
 export function CardProducts({ imgSrc, title, price, description, handleClick, id }) {
   const { cart, deleteProductOnCart } = useContext(ProductsContext)
@@ -10,10 +11,11 @@ export function CardProducts({ imgSrc, title, price, description, handleClick, i
   const handleDeleteProduct = (e) => {
     deleteProductOnCart(id)
   }
+  
   return (
-    <article className='card'>
-      <header className='card__img--container'>
-        <img className='card__img' src={imgSrc} alt={description} />
+    <article className='card mb-3'>
+      <header className='card-img-top'>
+        <img className='card-img' src={imgSrc} alt={description} />
       </header>
       <main className='card--container'>
         <h3 className='card__title'> {title} </h3>
@@ -25,5 +27,5 @@ export function CardProducts({ imgSrc, title, price, description, handleClick, i
         </section>
       </main>
     </article>
-  )
+  );
 }

@@ -1,34 +1,60 @@
-.modalOverlay {
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+/* modal.css */
 
-
-.modal {
-  display: grid;
-  grid-template-columns: 1fr;
-  justify-content: center;
-  align-items: start;
-  position: relative;
-  background-color: var(--color-white);
-  width: 90%;
-  height: 70%;
-  border-radius: 10px;
-  padding: 10px;
+.modal__main {
+  padding: 20px;
 }
 
 .modal__icon {
-  position: absolute;
-  z-index: 100;
-  right: 10px;
-  top: 10px;
-  font-size: var(--text-2xl);
+  font-size: 24px;
   cursor: pointer;
+  color:white; /* Adjust the color as needed */
+}
+
+.modal__icon:hover {
+  color: none; /* Adjust the hover color as needed */
+}
+
+/* You can add additional styles for the modal overlay if necessary */
+.modal-overlay {
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Center the modal */
+.modal {
+  background-color: #fff; /* White background for the modal */
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Optional: Customize Bootstrap modal header and body */
+.modal-header {
+  background-color: #007bff; /* Bootstrap primary color */
+  color: #fff; /* White text for the header */
+  border-bottom: none; /* Remove default border */
+}
+
+.modal-body {
+  font-size: 16px;
+  height: auto;
+}
+
+/* Optional: Add styles for the close button in the header */
+.modal-header .close {
+  color: #fff;
+}
+
+.modal-header .close:hover {
+  color: #ccc;
+}
+.Inicio__modal__button {
+ padding-bottom: 20%;
+ color:yellow;
 }

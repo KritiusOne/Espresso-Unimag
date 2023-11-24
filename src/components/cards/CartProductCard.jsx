@@ -1,14 +1,18 @@
+
 import React, { useContext } from 'react'
 import { Button } from '../buttons/Button'
 import { ProductsContext } from '../../context/productsContext'
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { IoCloseCircleSharp } from "react-icons/io5";
 import "./cartProductCard.css"
 
 export function CartProductCard({ price, nameProduct, srcImg, cantidad, id }) {
   const { addMoreProductToCart, deleteProductOnCart } = useContext(ProductsContext)
+
   const reduceToProduct = () => {
-    addMoreProductToCart(id, -1)
-  }
+    addMoreProductToCart(id, -1);
+  };
+
   const AugmentToProduct = () => {
     addMoreProductToCart(id, 1)
   }
