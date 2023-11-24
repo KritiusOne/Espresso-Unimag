@@ -1,6 +1,5 @@
 .FinalizarCompra__main {
-  height: calc(100vh - 90px);
-  margin-top: 90px;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -23,6 +22,10 @@
   color: var(--color-bgButton-yellow);
 }
 
+.no-Present {
+  color: var(--color-black);
+}
+
 .FinalizarCompra__main__products__head {
   display: flex;
   flex-direction: column;
@@ -33,6 +36,7 @@
 .FinalizarCompra__main__products__body {
   display: flex;
   flex-direction: row;
+  height: 100%;
   gap: 20px;
 }
 
@@ -44,4 +48,65 @@
 
 .productCard--img {
   width: 50px;
+}
+
+.FinalizarCompra__main__products__money__main {
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.money__main--img-bancolombia,
+.money__main--img-nequi,
+.money__main--img-daviplata {
+  object-fit: cover;
+  width: 200px;
+  height: 200px;
+  cursor: pointer;
+}
+
+.FinalizarCompra__main__products__money__footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 30px;
+}
+
+.button--ToBack,
+.button--Cancel {
+  background-color: var(--color-bg-blue);
+  color: var(--color-white);
+  border: none;
+  outline: none;
+  cursor: pointer;
+  margin: 10px 0;
+  height: 3em;
+  width: 120px;
+  outline: none;
+  padding: 1px 2px;
+}
+
+.FinalizarCompra__main__products__finally {
+  display: flex;
+  flex-direction: column;
+  height: 50vh;
+  width: 100vw;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.FinalizarCompra__main__products__finally__signal {
+  display: flex;
+  flex-direction: row;
+}
+
+@media only screen and (max-width: 768px) {
+  .no-Present {
+    display: none;
+  }
+
+  .FinalizarCompra__main__products__finally__signal {
+    flex-direction: column;
+  }
 }

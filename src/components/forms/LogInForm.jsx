@@ -18,6 +18,7 @@ export function LogInForm() {
   console.log(authContext)
   const handleSubmit = async (e) => {
     e.preventDefault()
+    console.log("ENTRE")
     if (userPending.username != "" && userPending.password != "") {
       const responseBBDD = await getUser(authContext.rol)
       if (!responseBBDD.ok) {
@@ -27,7 +28,7 @@ export function LogInForm() {
       const [userInCase] = responseTransform.filter((user) => user.correo == userPending.username)
       if (userInCase != undefined) {
         try {
-          const response = await authContext.login(userPending.username, userPending.password)
+          const response = await authContext.login(userInCase, userPending.username, userPending.password)
           navegate(TypesRoutes.HOME)
         } catch (error) {
           console.log(error.message)

@@ -59,8 +59,8 @@ export function SingInForm() {
       const response = await postUser(userRegistro.nombre, userRegistro.email, rol)
       if (!response.ok) { throw new Error("Error al registrar usuario en la bbdd") }
       try {
-
-        const user = await signup(userRegistro.email, userRegistro.password,)
+        const newUser = await response.json()
+        const user = await signup(newUser, userRegistro.email, userRegistro.password,)
         navegate(TypesRoutes.HOME)
       } catch (error) {
         console.log(error)
