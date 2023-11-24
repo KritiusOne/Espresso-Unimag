@@ -11,7 +11,7 @@ export default function CardOptionProfile({ fn, Icon, namecard, ...props }) {
           {namecard}
         </span>
       </Subtitle>
-      <Button title='IR' clickHandler={fn} className="cardOptionUser__button" />
+      <Button title='IR' clickHandler={fn} className="btn btn-primary cardOptionUser__button" />
     </article>
   )
 }

@@ -9,7 +9,7 @@ export function LayoutPage({ children, ...props }) {
   return (
     <>
       <div {...props} className={`layoutPage ${props.className ? props.className : ""}`}  >
-        <Header />
+        {/* Este es un comentario   <Header />   */}
         {
           children
         }

@@ -25,11 +25,11 @@ export function UserProfile() {
 
         <section className='UserProfile__SectionOptionProfile'>
           {
-            OPTIONS_FROM_CLIENTE.map(option => <Card Icon={option.Icon} namecard={option.title} fn={() => console.log("FUNCIONO")} />)
+            OPTIONS_FROM_CLIENTE.map(option => <Card className="card" Icon={option.Icon} namecard={option.title} fn={() => console.log("FUNCIONO")} />)
           }
         </section>
 
-        <Button title='Cerrar sesion' clickHandler={fnLogOut} />
+        <Button className="btn btn-danger" title='Cerrar sesion' clickHandler={fnLogOut} />
       </main>
     </LayoutPage>
   )

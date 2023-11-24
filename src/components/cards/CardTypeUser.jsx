@@ -21,7 +21,7 @@ export function CardTypeUser({ namecard, ...props }) {
           {namecard}
         </span>
       </Subtitle>
-      <Button title='Iniciar Sesion' clickHandler={fn} className="cardTypeUser__button" />
+      <Button title='Iniciar Sesion' clickHandler={fn} className="btn btn-primary cardTypeUser__button" />
     </article>
   )
 }

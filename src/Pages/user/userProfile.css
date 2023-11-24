@@ -14,3 +14,7 @@
   align-items: center;
   gap: 15px;
 }
+
+.card {
+  height: 30vh;
+}
