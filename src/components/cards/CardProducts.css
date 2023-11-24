@@ -41,12 +41,12 @@ h3,h5{
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  margin-bottom: 40px; /* Ajusta según sea necesario */
+  margin-bottom: 45px; /* Ajusta según sea necesario */
 }
 .btn-container {
   position: absolute;
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  margin-bottom: 5px; /* Ajusta según sea necesario */
+  margin-bottom: 10px; /* Ajusta según sea necesario */
 }
