@@ -8,7 +8,7 @@ import "./singInForm.css"
 export function SingInForm() {
   return (
     <form className='singInForm'>
-      <Title className="singInForm__title">CREAR NUEVA CUENTA</Title>
+      <Title className="singInForm__title">Registrate</Title>
       <header className='singInForm__header'>
         <Subtitle className="singInForm__subtTitle"> Nombre </Subtitle>
         <input type="text" className='singInForm__Input input--name' />

@@ -1,71 +1,104 @@
-/* Puedes dejar tu estilo existente y ajustar según sea necesario para que se integre bien con Bootstrap */
-
-:root {
-  --color-bg-grey: #dd0808;
-  --color-bg-black: #000000;
-  --color-black: #000000;
-  --color-white: #ffffff;
+.navbar {
+  background-color: #fff;
+  height: 80px;
+  margin: 20px;
+  border-radius: 16px;
+  padding: 0.5rem;
 }
 
-.header {
-  top: 0;
-  width: 100%;
-  z-index: 1000;
+.navbar-brand {
+  font-weight: 500;
+  color: #009970;
+  font-size: 24px;
+  transition: 0.3s color;
 }
 
-.header_img_container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 100%;
+.login-button {
+  background-color: #009970;
+  color: #fff;
+  font-size: 14px;
+  padding: 8px 20px;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: 0.3s background-color;
 }
 
-.header_btn_container {
-  display: flex;
-  align-items: center;
-  justify-content: end;
-  padding: 10px;
+.login-button:hover {
+  background-color: #00b383;
 }
 
-.header_btn_container a {
-  text-decoration: none; /* Elimina el subrayado de los enlaces dentro del contenedor */
-  margin-left: 20px; /* Espacio fijo entre elementos */
-  color: black;
-  font-size: 20px;
-  padding: 10px;
-}
-
-.header_btn_container a:hover {
-  background-color: var(--color-bg-black);
-  color: var(--color-white);
-}
-
-.header__logo {
-  width: 25%;
-}
-
-.nav-item {
-  font-size: 20px;
-  padding: 0px 20px;
-}
-
-.form-control {
+.navbar-toggler {
   border: none;
-  outline: none;
-  border-radius: 20px;
-  padding: 5px
+  font-size: 1.25rem;
 }
 
-.header_nav_list_icon {
-  cursor: pointer;
+.navbar-toggler:focus, .btn-close:focus {
+  box-shadow: none;
+  outline: none;
 }
 
 .nav-link {
-  color: var(--color-white);
-  height: 100%;
+  color: #666777;
+  font-weight: 500;
+  position: relative;
 }
 
-.nav-link:hover {
-  background-color: var(--color-bg-grey);
-  color: var(--color-black);
+.nav-link:hover, .nav-link.active {
+  color: #000;
+}
+
+@media (min-width: 991px) {
+  .nav-link::before{
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 2px;
+      background-color: #009970;
+      visibility: hidden;
+      transition: 0.3s ease-in-out;
+  }
+
+  .nav-link:hover::before, .nav-link.active::before {
+      width: 100%;
+      visibility: visible;
+  }
+}
+
+.hero-section {
+  background: url(hero-bg.jpg) no-repeat center;
+  background-size: cover;
+  width: 100%;
+}
+
+.hero-section::before {
+  background-color: rgba(0, 0, 0, 0.6);
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.hero-section .container {
+  height: 100vh;
+  z-index: 1;
+  position: relative;
+}
+
+.hero-section h1 {
+  font-size: 1.5em;
+}
+
+.hero-section h2 {
+  font-size: 1.2em;
+}
+
+.header__logo{
+
+  width: 100px;
+  height: 100px;
 }
