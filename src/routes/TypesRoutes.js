@@ -8,5 +8,6 @@ export const TypesRoutes = {
   ERROR_404: "*",
 }
 export const PrivateRoutes = {
-  PROFILE: "/profile/:id"
+  PROFILE: "/profile/:id",
+  CONFIRM_SHOP: "/finalizar-compra"
 }

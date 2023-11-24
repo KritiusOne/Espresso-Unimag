@@ -9,6 +9,7 @@ import { AuthGuard } from "../guards/Auth.guard"
 import { UserProfile } from "../Pages/user/UserProfile"
 import { InicioRegistro } from "../Pages/inicioRegistro/InicioRegistro"
 import { AntiAuthGuard } from "../guards/AntiAuth.guard"
+import { FinalizarCompra } from "../Pages/finalizarCompra/FinalizarCompra"
 
 export function MyRoutes() {
   return (
@@ -28,6 +29,9 @@ export function MyRoutes() {
 
       <Route element={<AuthGuard />}>
         <Route path={PrivateRoutes.PROFILE} element={<UserProfile />} />
+      </Route>
+      <Route element={<AuthGuard />} >
+        <Route path={PrivateRoutes.CONFIRM_SHOP} element={<FinalizarCompra />} />
       </Route>
     </Routes>
   )
