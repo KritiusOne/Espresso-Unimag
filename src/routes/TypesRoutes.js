@@ -9,5 +9,5 @@ export const TypesRoutes = {
 }
 export const PrivateRoutes = {
   PROFILE: "/profile/:id",
-  CONFIRM_SHOP: "/finalizar-compra"
+  CONFIRM_SHOP: "/finalizar-compra/"
 }

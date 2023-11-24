@@ -14,18 +14,25 @@ export function useAuth() {
 
 export function AuthProvider({ children }) {
   const [currentUser, setCurrentUser] = useState()
-  const [rol, setRol] = useState(RolesTypes.CLIENTE)
+  const [rol, setRol] = useState(window.localStorage.getItem("myRol") ? window.localStorage.getItem("myRol") : RolesTypes.CLIENTE)
   const [loading, setLoading] = useState(true)
-  function signup(email, password) {
+  const [userBBDD, setUserBBDD] = useState(window.localStorage.getItem("myUser"))
+  function signup(userBD, email, password) {
+    setUserBBDD(userBD)
     return createUserWithEmailAndPassword(auth, email, password)
   }
 
-  async function login(email, password) {
+  async function login(userBD, email, password) {
+    setUserBBDD(userBD)
+    window.localStorage.setItem("myUser", JSON.stringify(userBD))
+    window.localStorage.setItem("myRol", rol)
     const user = await signInWithEmailAndPassword(auth, email, password).then(elemento => elemento.json)
     return user
   }
 
   async function logout() {
+    window.localStorage.setItem("myUser", null)
+    window.localStorage.setItem("myRol", null)
     return await signOut(auth)
   }
 
@@ -52,6 +59,7 @@ export function AuthProvider({ children }) {
 
   const value = {
     currentUser, rol, setRol,
+    userBBDD,
     login,
     signup,
     logout,
