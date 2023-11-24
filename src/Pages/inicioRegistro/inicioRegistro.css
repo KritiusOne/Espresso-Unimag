@@ -1,0 +1,44 @@
+.main {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+}
+
+.cardTypeUser {
+  height: 50%;
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-color: var(--color-bg-blue);
+  border-radius: 20px;
+}
+
+.ADMINISTRADOR {
+  background-color: var(--color-bg-yellow);
+}
+
+.VENDEDOR {
+  background-color: var(--color-bg-darkGrey);
+}
+
+.CLIENTE {
+  background-color: var(--color-bg-green);
+}
+
+.cardTypeUser__avatar {
+  font-size: 200px;
+}
+
+.cardTypeUser__button {
+  padding: 5px 10px;
+  background-color: var(--color-bg-blue);
+  color: var(--color-white);
+  border: none;
+  outline: none;
+  cursor: pointer;
+}

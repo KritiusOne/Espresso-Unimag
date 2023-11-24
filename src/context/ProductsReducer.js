@@ -1,9 +1,5 @@
 import { ActionTYPES } from "./ActionTypes"
 export const initialState = {
-  user: {
-    username: "",
-    password: ""
-  },
   cart: [],
   viewCart: false,
   filters: ""
@@ -20,12 +16,12 @@ export function ProductsReducer(state, action){
     case ActionTYPES.DELETE_FROM_CART: {
       return {
         ...state,
-        cart: state.cart.filter((product) => product.id !== action.payload)
+        cart: state.cart.filter((product) => product.id.creationTime !== action.payload)
       }
     }
 
     case ActionTYPES.DELETE_ALL_FROM_CART: {
-      return productsInitialState;
+      return action.payload;
     }
 
     case ActionTYPES.CALCULATE_PRICE_FINAL: {
@@ -34,18 +30,13 @@ export function ProductsReducer(state, action){
         totalPriceShoppingCart: state.cart.reduce((previousValue, product) => previousValue + product.price, 0)
       }
     }
-    case ActionTYPES.LOGIN_USER_DATA: {
-      return {
-        ...state, user: action.payload
-      }
-    }
     case ActionTYPES.CHANGE_STATE_VIEW_FROM_CART: {
       return {
         ...state, viewCart: action.payload
       }
     }
     case ActionTYPES.ADD_MORE_THE_SAME_PRODUCT: {
-      const [productToMore] = state.cart.filter(product=>product.id == action.payload.id)
+      const [productToMore] = state.cart.filter(product=> product.id.creationTime == action.payload.id)
       productToMore.cantidad += parseInt(action.payload.cantidad)
       
       return {

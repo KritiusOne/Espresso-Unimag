@@ -1,15 +1,17 @@
-import logo from "../../assets/logo.png";
-import { Link } from "react-router-dom";
-import { useContext } from "react";
-import { ProductsContext } from "../../context/productsContext";
-import { ProfileButtons } from "../buttons/ProfileButtons";
-import { IgnoreButtons } from "../buttons/IgnoreButtons";
-import 'bootstrap/dist/css/bootstrap.min.css';
-import "./header.css";
+import { useContext } from "react"
+import { Link } from "react-router-dom"
+import logo from "../../assets/logo.png"
+import { BsSearch } from "react-icons/bs"
+import { IgnoreButtons } from "../buttons/IgnoreButtons"
+import { ProfileButtons } from "../buttons/ProfileButtons"
+import { ProductsContext } from "../../context/productsContext"
+import { useAuth } from "../../context/authContext/AuthContext"
+import 'bootstrap/dist/css/bootstrap.min.css'
+import "./header.css"
 
 export function Header() {
-  const { user, setFilterName } = useContext(ProductsContext);
-
+  const { setFilterName } = useContext(ProductsContext)
+  const { currentUser } = useAuth()
   const handleChangeFilter = (e) => {
     setFilterName(e.target.value);
   };
@@ -54,7 +56,7 @@ export function Header() {
             </div>
           </div>
           <div className="header_btn_container">
-            {!user.name ? <IgnoreButtons /> : <ProfileButtons />}
+            {!currentUser ? <IgnoreButtons /> : <ProfileButtons />}
           </div>
           <button
             className="navbar-toggler pe-0"

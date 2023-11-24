@@ -1,9 +1,10 @@
-import React, { useContext } from 'react';
+import React, { useContext } from 'react'
 import { Modal as BootstrapModal, Button } from 'react-bootstrap';
-import { AiOutlineCloseCircle } from 'react-icons/ai';
-import { InicioContext } from '../../Pages/Inicio/InicioContext';
+import { AiOutlineCloseCircle } from "react-icons/ai"
+import { InicioContext } from '../../Pages/productos/InicioContext'
 import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
-import './modal.css';
+import "./modal.css"
+
 
 export function Modal({ children, ...props }) {
   const { setViewModal } = useContext(InicioContext);

@@ -1,37 +1,42 @@
-import React, { useContext } from 'react';
-import { Button } from '../buttons/Button';
-import { ProductsContext } from '../../context/productsContext';
+
+import React, { useContext } from 'react'
+import { Button } from '../buttons/Button'
+import { ProductsContext } from '../../context/productsContext'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './cartProductCard.css';
+import { IoCloseCircleSharp } from "react-icons/io5";
+import "./cartProductCard.css"
 
 export function CartProductCard({ price, nameProduct, srcImg, cantidad, id }) {
-  const { addMoreProductToCart } = useContext(ProductsContext);
+  const { addMoreProductToCart, deleteProductOnCart } = useContext(ProductsContext)
 
   const reduceToProduct = () => {
     addMoreProductToCart(id, -1);
   };
 
   const AugmentToProduct = () => {
-    addMoreProductToCart(id, 1);
-  };
-
+    addMoreProductToCart(id, 1)
+  }
+  const handleClose = (e) => {
+    deleteProductOnCart(id)
+  }
   return (
-    <div className='col'>
-      <div className='card'>
-        <img src={srcImg} className='card-img-top' alt={`Imagen del articulo ${nameProduct}`} />
-        <div className='card-body'>
-          <h5 className='card-title'>{nameProduct}</h5>
-          <p className='card-text'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam dignissimos accusantium amet similique velit iste.</p>
-        </div>
-        <div className='mb-5 d-flex justify-content-around'>
-          <h3>${price}</h3>
-          <div className='d-flex'>
-            <Button title='-' className='btn btn-outline-secondary me-2' clickHandler={reduceToProduct} />
-            <strong className='cartProductCard__cantidad'>{cantidad}</strong>
-            <Button title='+' className='btn btn-outline-secondary ms-2' clickHandler={AugmentToProduct} />
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+    <article className='cartProductCard'>
+      <Button clickHandler={handleClose} className='cartProductCard__section card--section-close' Icon={IoCloseCircleSharp} />
+      <section className='cartProductCard__section card--section-1'>
+        <img src={srcImg} alt={`Imagen del articulo ${nameProduct}`} />
+      </section>
+      <section className='cartProductCard__section card--section-2'>
+        <h3 className='cartProductCard__title'> {nameProduct} </h3>
+        <strong className='cartProductCard__price'> $ {price} </strong>
+      </section>
+      <section className='cartProductCard__section card--section-3'>
+        <h5 className='cartProductCard__section__titleCant'> Cant </h5>
+        <footer className='cartProductCard__section__footer'>
+          <Button title='-' className="cartProductCard__buttonCantidad" clickHandler={reduceToProduct} />
+          <strong className='cartProductCard__cantidad'> {cantidad} </strong>
+          <Button title='+' clickHandler={AugmentToProduct} className="cartProductCard__buttonCantidad" />
+        </footer>
+      </section>
+    </article>
+  )
 }

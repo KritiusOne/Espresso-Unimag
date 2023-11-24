@@ -1,12 +1,12 @@
-import React, { useContext } from 'react'
-import { ProductsContext } from '../../context/productsContext'
+import React from 'react'
+import { useAuth } from '../../context/authContext/AuthContext'
 import "./avatar.css"
 
 export function Avatar() {
-  const { user } = useContext(ProductsContext)
+  const { currentUser } = useAuth()
   return (
-    <div className='avatar'>
-      <img src={user.icon ? user.icon : ""} alt={`Avatar de ${user.name}`} className='avatar__img' />
-    </div>
+    <picture className='avatar'>
+      <img src={currentUser.photoURL != null ? currentUser.photoURL : "https://elcomercio.pe/resizer/AB93Kg1JoITGLMLkCgLBnVzg_7g=/980x528/smart/filters:format(jpeg):quality(75)/cloudfront-us-east-1.images.arcpublishing.com/elcomercio/37OWRM2CLBAE7BP5SXKLVMNHZE.jpg"} alt={`Avatar de ${currentUser.email} `} className='avatar__img' />
+    </picture>
   )
 }

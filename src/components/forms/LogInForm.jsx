@@ -1,34 +1,49 @@
-import { useState, useContext, useEffect } from 'react'
-import { ProductsContext } from "../../context/productsContext"
+import { useState } from 'react'
 import { Title } from '../titles/title/Title'
 import { Subtitle } from '../titles/subtitle/Subtitle'
 import { useNavigate } from 'react-router'
 import { TypesRoutes } from "../../routes/TypesRoutes.js"
+import { validatorEmail } from '../../utils/validation.js'
 import "./loginForm.css"
+import { useAuth } from '../../context/authContext/AuthContext.jsx'
+import { getUser } from '../../services/getUser.js'
 
 export function LogInForm() {
-  const context = useContext(ProductsContext)
+  const authContext = useAuth()
   const navegate = useNavigate()
   const [userPending, setUserPending] = useState({
     username: "",
     password: ""
   })
-  let validatorEmail = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/
-  useEffect(() => {
-    if (context.user.name) {
-      navegate(TypesRoutes.HOME)
-    }
-  }, [context.user])
-  const handleSubmit = (e) => {
+  console.log(authContext)
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    //Aquí hariamos una peticion asincronica por medio de un custom hook
-    context.getUser(userPending.username, userPending.password)
+    if (userPending.username != "" && userPending.password != "") {
+      const responseBBDD = await getUser(authContext.rol)
+      if (!responseBBDD.ok) {
+        throw new Error("La peticion esta saliendo mal")
+      }
+      const responseTransform = await responseBBDD.json()
+      const [userInCase] = responseTransform.filter((user) => user.correo == userPending.username)
+      if (userInCase != undefined) {
+        try {
+          const response = await authContext.login(userPending.username, userPending.password)
+          navegate(TypesRoutes.HOME)
+        } catch (error) {
+          console.log(error.message)
+        }
+      } else {
+        throw new Error("Se esta accediendo a un usuario al que no le corresponden los roles asignados")
+      }
+    } else {
+      console.log("ALgo falta")
+    }
   }
   const handleChangeText = (e) => {
-    let posibleEmail = e.target.value
+    let posibleEmail = e.target.value.trim().toLowerCase()
     if (validatorEmail.test(posibleEmail)) {
       setUserPending({
-        ...userPending, username: e.target.value
+        ...userPending, username: posibleEmail
       })
     }
   }

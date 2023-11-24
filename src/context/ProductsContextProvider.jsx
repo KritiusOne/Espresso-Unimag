@@ -1,24 +1,15 @@
-import React, { useReducer } from 'react'
+import React, { useReducer, useState } from 'react'
 import { ProductsContext } from './productsContext'
 import { ProductsReducer, initialState } from './ProductsReducer'
 import { ActionTYPES } from './ActionTypes'
-import allUsers from "../utils/datafake/users.json"
 
 export function ProductsContextProvider({ children }) {
   const [state, dispatch] = useReducer(ProductsReducer, initialState)
+  const [products, setProducts] = useState({
+    all: [],
+    onFilter: []
+  })
 
-  //FUNCIONES DE LOS USUARIOS
-  const getUser = (username, password) => {
-    const [user] = allUsers.filter(user => username == user.email && password == user.password)
-    if (user) {
-      dispatch({
-        type: ActionTYPES.LOGIN_USER_DATA,
-        payload: user
-      })
-    } else {
-      //usuario o contraseña incorrectos
-    }
-  }
   //FUNCIONES DEL CARRITO
   const addProductToCart = (product) => {
     const newProduct = {
@@ -51,6 +42,12 @@ export function ProductsContextProvider({ children }) {
       payload: id
     })
   }
+  const deleteAllProductsOnCart = () => {
+    dispatch({
+      type: ActionTYPES.DELETE_ALL_FROM_CART,
+      payload: initialState
+    })
+  }
   /* FUNCIONES DE LOS FILTROS */
   const setFilterName = (filter) => {
     dispatch({
@@ -62,12 +59,12 @@ export function ProductsContextProvider({ children }) {
     <ProductsContext.Provider value={
       {
         cart: state.cart,
-        user: state.user,
         viewCart: state.viewCart,
         filters: state.filters, setFilterName,
-        getUser, addProductToCart,
+        addProductToCart,
         changeViewFromCart, addMoreProductToCart,
-        deleteProductOnCart
+        deleteProductOnCart, deleteAllProductsOnCart,
+        products, setProducts
       }}>
       {
         children

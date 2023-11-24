@@ -1,21 +1,36 @@
-import { useContext } from 'react'
-import { ProductsContext } from '../../context/productsContext'
 import { Avatar } from '../avatar/Avatar'
 import { CartButton } from './CartButton'
+import { useAuth } from '../../context/authContext/AuthContext'
+import { useNavigate } from 'react-router-dom'
 import "./profileButton.css"
+import { PrivateRoutes } from '../../routes/TypesRoutes'
+import { Button } from './Button'
 
 
 export function ProfileButtons() {
-  const { user } = useContext(ProductsContext)
-  // Imagen de ejemplo https://elcomercio.pe/resizer/AB93Kg1JoITGLMLkCgLBnVzg_7g=/980x528/smart/filters:format(jpeg):quality(75)/cloudfront-us-east-1.images.arcpublishing.com/elcomercio/37OWRM2CLBAE7BP5SXKLVMNHZE.jpg
-
+  const { currentUser } = useAuth()
+  const navegate = useNavigate()
+  const emailArr = [...currentUser.email]
+  let position = 10000000
+  const emailName = emailArr.filter((letra, i) => {
+    if (letra != "@" && i < position) {
+      return letra
+    }
+    if (letra == "@") {
+      position = i
+      return
+    }
+  }).join("").trim()
+  const handleClick = () => {
+    navegate(`/profile/${currentUser.uid}`)
+  }
   return (
     <div className='profileButtons'>
       <CartButton />
-      <button className='profileButtons__userButton' >
+      <button onClick={handleClick} className='profileButtons__userButton' >
         <strong className='profileButtons__userButton__title'>
           {
-            user.name
+            currentUser.displayName ? currentUser.displayName : emailName
           }
         </strong>
         <Avatar />
