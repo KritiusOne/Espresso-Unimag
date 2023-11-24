@@ -4,6 +4,7 @@ import { OPTIONS_FROM_ADMIN, OPTIONS_FROM_VENDEDOR } from "../../utils/UserOptio
 import Card from "../cards/CardOptionProfile";
 import { RolesTypes } from "../../utils/RolesTypes";
 import { Carousel } from 'react-bootstrap';
+import { CardProducts } from "../cards/CardProducts";
 
 import "./userLogged.css";
 
@@ -19,42 +20,55 @@ export function UserLogged() {
     if (rol === RolesTypes.CLIENTE) setIsCliente(true);
     if (rol === RolesTypes.VENDEDOR) setIsVendedor(true);
     async function getData() {
-      if (products.all.length == 0) {
-        try {
-          const response = await fetch('https://cafeapi20231114234957.azurewebsites.net/Productos')
-          if (response.ok) {
-            const responseTransform = await response.json()
-            setCarruselProducts({ ...products, all: responseTransform })
-          }
-        } catch (error) {
-          console.log(error.message)
+      try {
+        const response1 = await fetch('https://cafeapi20231114234957.azurewebsites.net/Productos/655e6b4bca5ae917f8a3db91')
+        const response2 = await fetch('https://cafeapi20231114234957.azurewebsites.net/Productos/655e6bb3ca5ae917f8a3db92')
+        const response3 = await fetch('https://cafeapi20231114234957.azurewebsites.net/Productos/655e6ccfca5ae917f8a3db93')
+        const response4 = await fetch('https://cafeapi20231114234957.azurewebsites.net/Productos/655e7147ca5ae917f8a3db98')
+        if (response1.ok) {
+          const responseTransform = await response1.json()
+          setCarruselProducts([...carruselProducts, responseTransform])
         }
+        if (response2.ok) {
+          const responseTransform = await response2.json()
+          setCarruselProducts([...carruselProducts, responseTransform])
+        }
+        if (response3.ok) {
+          const responseTransform = await response3.json()
+          setCarruselProducts([...carruselProducts, responseTransform])
+        }
+        if (response4.ok) {
+          const responseTransform = await response4.json()
+          setCarruselProducts([...carruselProducts, responseTransform])
+        }
+      } catch (error) {
+        console.log(error.message)
       }
+
     }
     getData()
   }, []);
 
-  const getData = async () => {
-    try {
-      const response = await fetch(PRODUCTS_URL)
-      if (response.ok) {
-        const responseTransform = await response.json()
-        setProducts({ ...products, all: responseTransform })
-      }
-    } catch (error) {
-      console.log(error.message)
-    }
-  };
+
 
   return (
     <main className='UserProfile'>
       {isCliente && (
         <section className='UserProfile__SectionOptionProfile'>
           <Carousel>
-            {products.map(producto => (
+            {carruselProducts.map(producto => (
               <Carousel.Item key={producto.id.creationTime}>
-                {/* Add your carousel content here for each item */}
-                <p>{producto.name} </p>
+                <article className='card mb-3'>
+                  <header className='card-img-top'>
+                    <img className='card-img' src={producto.imagen} alt={producto.descripcpion} />
+                  </header>
+                  <main className='card-body'>
+                    <h3 className='card-title'> {producto.name} </h3>
+                    <section className='card-info--container'>
+                      <strong className='card-price'>Precio: $: {producto.precio} </strong>
+                    </section>
+                  </main>
+                </article>
               </Carousel.Item>
             ))}
           </Carousel>
