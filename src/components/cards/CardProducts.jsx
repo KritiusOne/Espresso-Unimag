@@ -15,15 +15,26 @@ export function CardProducts({ imgSrc, title, price, description, handleClick, i
   return (
     <article className='card mb-3'>
       <header className='card-img-top'>
-        <img className='card-img' src={imgSrc} alt={description} />
+        <img className='card-img' src={imgSrc} alt={description}/>
       </header>
-      <main className='card--container'>
-        <h3 className='card__title'> {title} </h3>
-        <section className='card__info--container'>
-          <strong className='card__price'>Precio: $: {price} </strong>
-          {
-            !actualProduct ? <Button className='card__buttton' Icon={BsCart4} title={"Agregar"} clickHandler={handleClick} /> : <Button className='card__buttton button--delete' Icon={BsCart4} title={"Delete"} clickHandler={handleDeleteProduct} />
-          }
+      <main className='card-body'>
+        <h3 className='card-title'> {title} </h3>
+        <section className='card-info--container'>
+          <strong className='card-price'>Precio: $: {price} </strong>
+          <div className='btn-container'>
+            {!actualProduct ? (
+              <Button
+                className='btn btn-primary' 
+                Icon={BsCart4} 
+                title={"Agregar"} 
+                clickHandler={handleClick} />
+              ) : ( 
+              <Button className='btn btn-danger' 
+                Icon={BsCart4} 
+                title={"Delete"} 
+                clickHandler={handleDeleteProduct} />
+            )}
+          </div>
         </section>
       </main>
     </article>
