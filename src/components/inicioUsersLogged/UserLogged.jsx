@@ -4,7 +4,6 @@ import { OPTIONS_FROM_ADMIN, OPTIONS_FROM_VENDEDOR } from "../../utils/UserOptio
 import Card from "../cards/CardOptionProfile";
 import { RolesTypes } from "../../utils/RolesTypes";
 import { Carousel } from 'react-bootstrap';
-import { CardProducts } from "../cards/CardProducts";
 
 import "./userLogged.css";
 
@@ -25,22 +24,24 @@ export function UserLogged() {
         const response2 = await fetch('https://cafeapi20231114234957.azurewebsites.net/Productos/655e6bb3ca5ae917f8a3db92')
         const response3 = await fetch('https://cafeapi20231114234957.azurewebsites.net/Productos/655e6ccfca5ae917f8a3db93')
         const response4 = await fetch('https://cafeapi20231114234957.azurewebsites.net/Productos/655e7147ca5ae917f8a3db98')
+        let indexProducts = []
         if (response1.ok) {
           const responseTransform = await response1.json()
-          setCarruselProducts([...carruselProducts, responseTransform])
+          indexProducts.push(responseTransform)
         }
         if (response2.ok) {
           const responseTransform = await response2.json()
-          setCarruselProducts([...carruselProducts, responseTransform])
+          indexProducts.push(responseTransform)
         }
         if (response3.ok) {
           const responseTransform = await response3.json()
-          setCarruselProducts([...carruselProducts, responseTransform])
+          indexProducts.push(responseTransform)
         }
         if (response4.ok) {
           const responseTransform = await response4.json()
-          setCarruselProducts([...carruselProducts, responseTransform])
+          indexProducts.push(responseTransform)
         }
+        setCarruselProducts(indexProducts)
       } catch (error) {
         console.log(error.message)
       }
@@ -49,7 +50,7 @@ export function UserLogged() {
     getData()
   }, []);
 
-
+  console.log(carruselProducts)
 
   return (
     <main className='UserProfile'>
